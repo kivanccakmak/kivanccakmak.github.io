@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Post - Kıvanç's Pancake House</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../../css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+    LatexIT.add('p',true);
+
+</head>
+
+<body>
+
+    <div class="brand">Kıvanç's Pancake House</div>
+    <div class="address-bar">İstanbul, Turkey</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Kıvanç's Pancake House</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../../../index.html">About</a>
+                    </li>
+                    <li>
+                        <a href="../../../math.html">Math</a>
+                    </li>
+                    <li>
+                        <a href="../../../chindogu.html">Chindogu</a>
+                    </li>
+                    <li>
+                        <a href="../../../blog.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-left">
+		<h1 class="entry-title">Proof on Infinity of Prime Numbers</h1>
+		<p>In this post, I show that we have infinitely many prime numbers. To do so, I use a proof from 300 BC which 
+		provided Greek Mathematician. The one that people usually call as “Father of Geometry” or <b>Euclid</b> of Alexandria.</p>
+		<br>
+		<p>Here we break into proof:</p>
+	
+		<p>Let's write prime numbers in an ascending manner, <b lang="latex"> p_1 = 2, p_2 = 3, p_3 = 5, p_4 = 7</b></p>
+
+		<p>When we check the numbers which are in a pattern of: <b lang="latex"> p_1.p_2 + 1 = 2.3 + 1 = 7</b> and <b lang="latex"> p_1.p_2.p_3 + 1 = 2.3.5 + 1 = 31</b> 
+		and <b lang="latex"> p_1.p_2.p_3.p_4 + 1 = 2.3.5.7 + 1 = 211</b> we oftenly come up with a prime number. But how can we be 
+		sure about primality of number <b lang="latex"> A = p_1.p_2 \dots p_n + 1</b> for all values of <b lang="latex">n</b>?
+		</p>
+
+		<p>Here we use contradiction technique to check: We intuitively think that <b lang="latex">A</b> is a prime number, since it empirically is. 
+		Now we set up an equation which assumes that <b lang="latex">A</b> is a non-prime number and try to show that this equation would not hold -hence contradicts.
+		</p>
+
+		<p>Following equation assumes that <b lang="latex">A</b> is a divisor of some number. We clearly know that, every number -except 1- is at least multiple 
+		of one prime number. For this reason, let's say that <b lang="latex"> p_r</b> is a divisor of <b lang="latex">A</b>.</p>
+
+		<p><b lang="latex"> A = p_1.p_2.p_3 \dots p_r \dots p_n + 1 \rightarrow \frac{A}{p_r} = p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n + \frac{1}{p_r}</b>.
+		Consequently we have <b lang="latex"> \frac{A}{p_r} - p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n = \frac{1}{p_r}</b></p>
+
+		<p>Let's concentrate on last equation. <b lang="latex"> \frac{A}{p_r}</b> has to be an integer, since we assume <b lang="latex">A</b> is a 
+		multiple of <b lang="latex"> p_r</b>. Second term <b lang="latex"> p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n</b> is also integer, nevertheless 
+		<b lang="latex"> \frac{1}{p_r}</b> is not. So, our non-primality assumption of <b lang="latex">A</b> was wrong and this wrong assumption proves us that, 
+		<b lang="latex">A</b> would always be prime for any value of n.</p>
+		
+		</div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright &copy; Kıvanç Çakmak 2016</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

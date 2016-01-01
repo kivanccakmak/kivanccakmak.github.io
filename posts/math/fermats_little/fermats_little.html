@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Post - Kıvanç's Pancake House</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../../css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+    LatexIT.add('p',true);
+
+</head>
+
+<body>
+
+    <div class="brand">Kıvanç's Pancake House</div>
+    <div class="address-bar">İstanbul, Turkey</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Kıvanç's Pancake House</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../../../index.html">About</a>
+                    </li>
+                    <li>
+                        <a href="../../../math.html">Math</a>
+                    </li>
+                    <li>
+                        <a href="../../../chindogu.html">Chindogu</a>
+                    </li>
+                    <li>
+                        <a href="../../../blog.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-left">
+		<h1 class="entry-title">Fermat’s Little Theorem</h1>
+		<p>A French lawyer at the Parlement of Toulouse, and amateur (means lover of) Mathematician in 17th century, called <b>Pierre de Fermat</b> proposed the following statement:</p>
+		<blockquote>
+		If <b lang="latex">p</b> is a prime number, then for any integer <b lang="latex">n</b>, 
+		the number <b lang="latex"> n^{p} − n</b> is an integer multiple of <b lang="latex">p</b>
+		</blockquote>
+		</div>
+		<p>This post is dedicated to provide the proof of statement</p>
+		<ul>
+			<li><p><b>Case 1: </b> <b lang="latex">p</b> is the divisor of <b lang="latex">n</b>. 
+			Lets assume <b lang="latex"> n = pk</b> since <b lang="latex"> \frac{n^p - n}{p} = \frac{n(p-1)}{p} = k(p - 1)</b> </li></p>
+			<li><p><b>Case 2: </b>p is not the divisor of n, which indirectly means <b lang="latex">p</b> and <b lang="latex">n</b> are relatively prime numbers. 
+			We provide the proof with the help of numbers <b lang="latex"> n.2n.3n.4n.\dots (p-1)n</b></li></p>
+		</ul>
+		<p>Here the key point is :</p>
+
+		<p><b lang="latex"> r_1 = \bmod(n,p)</b></p>
+
+		<p><b lang="latex"> r_{2} = \bmod(2n,p)</b></p>
+
+		<p><b lang="latex"> \dots </b></p>
+
+		<p><b lang="latex"> r_{p-1} = \bmod(n(p-1),p)</b></p>
+
+		<p>All of these reminders, which are <b lang="latex"> r_{1}, r_{2} \dots r_{p-1}</b> equals to different values.</p>
+		
+		<p>The reason is quite straightforward! Since <b lang="latex">n</b> and <b lang="latex">p</b> are relatively numbers, multiple of <b lang="latex">n</b>, 
+		-which is less than <b lang="latex">p</b> and represented by <b lang="latex">A</b>- can not provide this equation: <b lang="latex"> An = pB</b> 
+		for integer <b lang="latex">B</b>. 
+		Let's try to prove this claim as well. If we can show that equation <b lang="latex"> An = pB \rightarrow \frac{A}{B} = \frac{p}{n}</b> 
+		does not hold, it contradicts and our claim would be proved by well-known method, called contradiction. Here is the point: 
+		since <b lang="latex">p</b> and <b lang="latex">n</b> are relatively prime numbers, they don't have any common divisor. 
+		On the other hand, since <b lang="latex">A</b> is less than p by problem definition, they must have one to satisfy this equation, 
+		nevermore there is no. So, equation contradicts and now we are sure that, we can not get same
+		reminder of <b lang="latex">p</b> for numbers <b lang="latex">k.n</b> and <b lang="latex">k.n + A.n</b> -where 
+		<b lang="latex">A</b> is less than <b lang="latex">p</b>.
+		</p>
+		<p>After this proof, we need to keep going on. Before that, please notice that set of 
+		<b lang="latex"> [r_{1}, r_{2}, r_{3}, \dots r_{p-1}]</b> is equivalent to set of <b lang="latex"> [0, 1, 2 \dots p-1]</b>, 
+		since each of those reminders has to be unique as we proved by contradiction.
+		</p>
+		<p>Here we go. The sign " <b lang="latex">x | y</b> " means that "x divides y".</p>
+
+		<p><b lang="latex"> n = p.k_{1} + r_{1} \rightarrow p | (n - r_{1})</b></p>
+
+		<p><b lang="latex"> 2n = p.k_{2} + r_{2} \rightarrow p | (2n - r_{2})</b></p>
+
+		<p><b lang="latex"> 3n = p.k_{3} + r_{3} \rightarrow p | (3n - r_{3})</b></p>
+
+		<p><b lang="latex"> \dots </b></p>
+
+		<p><b lang="latex"> (p-1)n = p.k_{p-1} + r_{p-1} \rightarrow p | ( (p-1)n - r_{p-1})</b></p>
+		<br><br>
+		<p><b>Small Theorem: </b> Let <b lang="latex">a, b, c, d</b> and <b lang="latex">p</b> are integers such that, 
+		<b lang="latex"> p | (a - b)</b> and <b lang="latex"> p | (c - d)</b>. Then, <b lang="latex"> p | (ac - bd)</b>
+		</p>
+		<p><b>Small Proof: </b>Since we have <b lang="latex"> ac - bd = ac - bc + bc - bd = c(a - b) + b(c - d)</b> 
+		proof is complete.
+		<br><br>
+		</p>
+		<p>Here, we use this small proof to conclude Fermat's Little Theorem.
+		<br> 
+		<br>
+		Since <b lang="latex"> p | n - r_{1}</b> and <b lang="latex"> p |2n - r_{2}</b></p>
+		<p><b lang="latex"> p | [n . 2n - r_1 . r_2] \rightarrow p | [2n^{2} - r_{1}r_{2}]</b></p>
+		<p>Here, we can also include <b lang="latex"> 3n - r_3</b> with our new value, since p divides both of them:</p>
+		<p><b lang="latex"> p | [3n . 2n^{2} - r_{3} . r_{2} . r_{1}]</b></p>
+		<p><b lang="latex"> \dots</b></p>
+		<p>As you can realize, we can add all numbers up to <b lang="latex">(n - 1)p</b></p>
+		<p><b lang="latex"> p | [n . 2n . 3n \dots (p - 1)n - r_1 . r_2 . r_3 \cdots r_{p-1}]</b></p>
+		<p><b lang="latex"> \rightarrow p | [(p - 1)!n^{p-1} - r_{1} . r_{2} . \cdots r_{p-1}]</b></p>
+		<p><b lang="latex"> \rightarrow p | [(p - 1)!n^{p-1} - (p - 1)!]</b></p>
+		<p><b lang="latex"> \rightarrow p | [(p - 1)! (n^{p-1} - 1)]</b></p>
+		<p><b lang="latex"> \rightarrow p | [1 . 2 . 3 \dots (p - 1) . (n^{p-1} - 1)]</b></p>
+		<p>Since p is a prime number and it is not divisible with numbers in between <b lang="latex"> [1, p-1]</b>, it has 
+		to be divisor of <b lang="latex"> n^{p-1} - 1</b> which concludes the proof.</p>
+		<p><b lang="latex"> p | (n^{p-1} - 1) \rightarrow p | (n^{p} - p)</b></p>
+		<p><i>References:</i>
+		<ol>
+			<li><a href="http://cims.nyu.edu/~kiryl/teaching/aa/les092403.pdf">
+				http://cims.nyu.edu/~kiryl/teaching/aa/les092403.pdf</a></li>
+			<li><a href="http://en.wikipedia.org/wiki/Fermat's_little_theorem">
+				wiki page</a></li>
+		</ol>
+		<p>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright &copy; Kıvanç Çakmak 2016</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
