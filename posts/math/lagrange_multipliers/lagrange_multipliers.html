@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Post - Kıvanç's Pancake House</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../../css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+    LatexIT.add('p',true);
+
+</head>
+
+<body>
+
+    <div class="brand">Kıvanç's Pancake House</div>
+    <div class="address-bar">İstanbul, Turkey</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Kıvanç's Pancake House</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../../../index.html">About</a>
+                    </li>
+                    <li>
+                        <a href="../../../math.html">Math</a>
+                    </li>
+                    <li>
+                        <a href="../../../chindogu.html">Chindogu</a>
+                    </li>
+                    <li>
+                        <a href="../../../blog.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-left">
+		<h1 class="entry-title">On Lagrange Multipliers</h1>
+		<p>This blog post is aimed to explain proof of Lagrange Multipliers. I tried to express everything in a simple fashion, 
+		nevertheless prospective reader needs to have some background on basics of calculus.
+		</p>
+		<p>I’ll provide motivation to use Lagrange Multipliers with a simple problem. Throughout this post, I’ll use the following 
+		problem statement to have expository propositions on some circumstances.
+		</p>
+		<p>
+		Here I have two functions which are <b lang="latex">f(x,y) = x \times y</b> and <b lang="latex">g(x,y) = x^{2} + y^{2} = 16</b>.
+		And I'm only interest in positive x and y values. As you might observe from the graph below <b lang="latex">f(x,y)</b>
+	        is defined in every place in first region -blue lines. Nevertheless, <b lang="latex">g(x,y)</b> is only defined on 
+		top of red line; circle. 
+		</p>
+		<p>		
+		My aim to use Lagrange Multipliers is finding <b lang="latex">x</b> and <b lang="latex">y</b>
+		values pair which satisfies <b lang="latex">x^{2} + y^{2} = 16</b> and provides highest <b lang="latex">x \times y</b>.
+		In other words, I want to find a point on first region of circle -not inside but on- which provides highest <b lang="latex">x \times y</b>.
+		For example, when <b lang="latex">x = 4</b> and <b lang="latex">y = 0</b>, equation <b lang="latex">x^{2} + y^{2} = 16</b> is satisfied.
+		Nevertheless, this values provide <b lang="latex">x \times y = 0 \times 4 = 0</b>, which does not seem highest <b lang="latex">f(x, y)</b>
+		value on circle at glance
+		</p>
+		<br>
+		<br>
+		</div>
+		<div class="row text-center">
+			<figure>
+				<img src="img/first.png">
+				<figcaption><i>Figure 1: Graphical representation of example</i></figcaption>
+			</figure>
+		</div>
+		<br>
+		<br>
+		<p>
+		Mathematical representation of explanation above takes only one line: <b lang="latex">\textit{ max } f(x, y) \textit{ subject to } g(x,y)</b>
+		</p>
+		<p>
+		Function <b lang="latex">g(x,y)</b> is mostly called as a constraint function. Again, <b lang="latex">f(x,y)</b> is defined in many places, but we 
+		only interest the values that provides highest <b lang="latex">f(x,y)</b> and satisfies constraint <b lang="latex">g(x,y)</b>.
+		</p>
+		<p>
+		First we parametrize our constraint function <b lang="latex">g(x, y)</b>
+		</p>
+		<p><b lang="latex">x^{2} + y^{2} = 16</b></p>
+		<p><b lang="latex">\rightarrow y = \sqrt{16 - x^{2}}</b>, then let <b lang="latex"> y = t</b>. Consequently <b lang="latex"> x = \sqrt{16 - t^2}</b>
+		<p>Here, we define <b lang="latex"> x(t) = \sqrt{16 - t^2} = x</b> and <b lang="latex"> y(t) = t = y</b></p>
+		<p>Consequently, we define our vector-valued function <b lang="latex"> r(t) = ( x(t), y(t) ) = (\sqrt{16-t^2}, t)</b></p>
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+				<img src="img/second.png">
+				<figcaption><i>Figure 2: Graphical illustration of vector valued function <b lang="latex">r(t)</b></i></figcaption>
+			</figure>
+		</div>
+		<br>
+		<br>
+		<p>So, we can say that <b lang="latex"> g(x(t),y(t)) = g(\sqrt{16 - t^2}, t) = g(x, y)</b></p>
+		<p>As you might notice, vector-valued function <b lang="latex"> r(t) </b> assigns a vector in 2D space with respect to variable <b lang="latex">t</b>. 
+		Also note that, since we interest the points in first region and circle, <b lang="latex"> t \in [0,4]</b>
+		</p>
+		<p>Are you with me so far? :)</p>
+		<p>If so, here we'll use <b lang="latex">r(t)</b> in order to bound <b lang="latex">f(x,y)</b></p>
+		<p>Lets define a modified version of <b lang="latex">f(x,y)</b> which is <b lang="latex">F(t) = f(x(t),y(t)) = f(\sqrt{16 - t^2},t)</b></p>		
+		<p>For example</p>
+		<p><b lang="latex"> F(0) = f(x(0),y(0)) = f(\sqrt{16 - 0^2}, 0) = f(\sqrt{16},0) = \sqrt{16}.0 = 0$</b></p>
+		<p><b lang="latex"> F(1) = f(x(1),y(1)) = f(\sqrt{16 - 1^2}, 1) = f(\sqrt{15},1) = \sqrt{15}.1 = \sqrt{15}</b></p>
+		<p><b lang="latex"> F(2) = f(x(2),y(2)) = f(\sqrt{16 - 2^2}, 2) = f(\sqrt{12},2) = \sqrt{12}.2 = 4\sqrt{3}</b></p>
+		<p><b lang="latex"> \dots </b></p>
+		<p><b lang="latex"> F(4) = f(x(4),y(4)) = f(\sqrt{16 - 4^2},4) =0.4 = 0</b></p>
+		<p>So, if we can find <b lang="latex"> t_{0}</b> which provides highest <b lang="latex">F(t)</b> over <b lang="latex"> t \in [0,4]</b>, 
+		then we would effectively find <b lang="latex"> x_{0},y_{0}</b> pair that provides highest 
+		<b lang="latex">f(x,y)</b> and satisfies constraint function <b lang="latex">g(x,y)</b> as well.
+		</p>
+		<p>Before trying to do that, we make an investment of next steps by 
+		playing around with <b lang="latex">r'(t)</b> and some fundamentals about lines.
+		</p>
+		<p>As explained before, <b lang="latex">r(t)</b> produces vector, that lies on 2D space. Now, we consider derivative of it. 
+		From now on, I'll use <b lang="latex">i</b> and <b lang="latex">j</b> notation -<b lang="latex">i</b> denotes part of 
+		vector that exist in x-axis and <b lang="latex">j</b> denotes part of vector that exist in y-axis.
+		</p>
+		<p><b lang="latex"> r'(t) = \frac{d\bold{r}}{dt} = \lim_{\Delta t \to 0} \frac{\bold{r}(t + \Delta t) - \bold{r}(t)}{\Delta t}</b>
+		</p>
+		<p><b lang="latex"> \rightarrow \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}i + \lim_{\Delta t \to 0} \frac{y(t + \Delta t) - y(t)}{\Delta t}j</b></p>
+		<p><b lang="latex"> \rightarrow \frac{dx}{dt}i + \frac{dy}{dt}j</b></p>
+		<p>As <b lang="latex"> \Delta t \to 0</b> distance in between location of <b lang="latex"> r(t)</b> and location of 
+		<b lang="latex"> r(t + \Delta t)</b> decreases along the curve. Consequently, <b lang="latex">r'(t)</b> becomes a tangent vector of curve.
+		</p>
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+				<img src="img/fourth.png">
+				<figcaption><i>Figure 3: As the difference in between <b lang="latex">t</b> approaches zero, 
+				<b lang="latex">r'(t)</b> becomes the tangent vector</b></i></figcaption>
+			</figure>
+		</div>
+		<br>
+		<br>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright &copy; Kıvanç Çakmak 2016</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
