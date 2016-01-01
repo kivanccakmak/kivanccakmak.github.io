@@ -141,7 +141,7 @@
 		<p>If so, here we'll use <b lang="latex">r(t)</b> in order to bound <b lang="latex">f(x,y)</b></p>
 		<p>Lets define a modified version of <b lang="latex">f(x,y)</b> which is <b lang="latex">F(t) = f(x(t),y(t)) = f(\sqrt{16 - t^2},t)</b></p>		
 		<p>For example</p>
-		<p><b lang="latex"> F(0) = f(x(0),y(0)) = f(\sqrt{16 - 0^2}, 0) = f(\sqrt{16},0) = \sqrt{16}.0 = 0$</b></p>
+		<p><b lang="latex"> F(0) = f(x(0),y(0)) = f(\sqrt{16 - 0^2}, 0) = f(\sqrt{16},0) = \sqrt{16}.0 = 0</b></p>
 		<p><b lang="latex"> F(1) = f(x(1),y(1)) = f(\sqrt{16 - 1^2}, 1) = f(\sqrt{15},1) = \sqrt{15}.1 = \sqrt{15}</b></p>
 		<p><b lang="latex"> F(2) = f(x(2),y(2)) = f(\sqrt{16 - 2^2}, 2) = f(\sqrt{12},2) = \sqrt{12}.2 = 4\sqrt{3}</b></p>
 		<p><b lang="latex"> \dots </b></p>
@@ -168,13 +168,129 @@
 		<br>
 		<div class="row text-center">
 			<figure>
-				<img src="img/fourth.png">
+				<img src="img/third.png">
 				<figcaption><i>Figure 3: As the difference in between <b lang="latex">t</b> approaches zero, 
 				<b lang="latex">r'(t)</b> becomes the tangent vector</b></i></figcaption>
 			</figure>
 		</div>
 		<br>
 		<br>
+		<p>Now, let's investigate this tangent vector with usage of example.</p>
+
+		<p><b lang="latex"> g(x,y) = c = 16</b></p>
+
+		<p>Since we can parametrize g(x,y) in a form of g(x(t), y(t)) as we've done above:</p>
+		
+		<p><b lang="latex"> \frac{d}{dt} g(x(t),y(t)) = \frac{d}{dt}c</b></p>
+
+		<p><b lang="latex"> \rightarrow \frac{dg}{dx} \frac{dx}{dt} + \frac{dg}{dy} \frac{dy}{dt} = 0</b></p>
+
+		<p>Now, we can modify this equation with usage of inner product and gradient vector</p>
+
+		<p><b lang="latex"> \rightarrow (\frac{dg}{dx}i + \frac{dg}{dy}j) \:\:\: . \:\:\: (\frac{dx}{dt}i + \frac{dy}{dt}j) = 0</b></p>
+
+		<p><b lang="latex"> \rightarrow \nabla_{g(x,y)} \textit{\:\:\: . \:\:\:} r'(t)= 0</b></p>
+
+		<p>So, here we show that, if we have a function, the gradient of it -which is <b lang="latex"> \nabla_{g(x,y)}</b> - 
+		is perpendicular to it's tangent curve. Below, we graphically illustrate this statement for our constraint function as well. 
+		Note that, any level curve satisfies this orthogonality property.		
+		</p>
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+				<img src="img/fourth.png">
+				<figcaption><i>Figure 4: Gradient vector is perpendicular to tangent vector at any point <b lang="latex">(x,y)</b> 
+				on curve, </i></figcaption>
+			</figure>
+		</div>
+		<br>
+		<br>
+		<p>Now, we would find the equation of this tangent vectors. In order to do that, here we provide small proposition and proof; 
+		if you are familiar, you might comfortably skip.
+		</p>
+		<p><b>Small Theorem 1:</b></p>
+		<p>Let <b lang="latex"> y_{1} = mx + c</b> and <b lang="latex"> y_{2} = nx + d</b>. If this two lines are perpendicular, <b lang="latex">m \times n = -1</b></p>
+		<p><b>Small Proof 1: </b></p>
+		<p><b lang="latex"> m = \tan{\theta}</b> and <b lang="latex"> n = \tan{\phi}</b> In order to provide orthogonality, <b lang="latex"> \phi - \theta = 90^{\circ}</b></p>
+		<p>So, <b lang="latex"> m = \tan{\theta} = \tan{(\phi - 90^{\circ})} = \frac{sin(\phi - 90^{\circ})}{cos(\phi - 90^{\circ})} = 
+		\frac{-\cos(\phi)}{\sin(\phi)} = \frac{-1}{\tan(\phi)} = \frac{-1}{n}</b>
+		</p>
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+				<img src="img/fifth.png">
+				<figcaption><i>Figure 5: Gradient vector is perpendicular to tangent vector at any point <b lang="latex">(x,y)</b> 
+				on curve, </i></figcaption>
+			</figure>
+		</div>
+		<br>
+		<br>
+		<p>By usage of this information, let's try to find tangential vector at <b lang="latex"> (2\sqrt{2}, 2\sqrt{2})</b> on our <b lang="latex">g(x,y)</b></p>
+
+		<p>First, we calculate <b lang="latex"> \nabla_{g(2\sqrt{2}, 2\sqrt{2})} = 2x + 2y |_{2\sqrt{2}, 2\sqrt{2}} = 4\sqrt{2}i + 4\sqrt{2}j </b></p>
+
+		<p>So, slope of normal line at <b lang="latex"> (2\sqrt{2}, 2\sqrt{2})</b> is equal to one. Since normal line is orthogonal to 
+		tangent vector, slope of tangential vector has to be minus one, regarding to small proof.</p>
+
+		<p>So, we can express tangential line as following:</p>
+
+		<p><b lang="latex"> (y - y_{0}) = m(x - x_{0})</b></p>
+
+		<p><b lang="latex"> (y - 2\sqrt{2}) = -1(x - 2\sqrt{2}) \rightarrow x + y = 4\sqrt{2}</b></p>
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+				<img src="img/sixth.png">
+			</figure>
+		</div>
+		<br>
+		<br>
+		<p>Now, we are close to provide proof of Lagrange Multipliers! :)</p>
+
+		<p>As declared a lot above, we need to find extreme point of <b lang="latex">F(t)</b></p>
+
+		<p>So, let me try:</p>
+
+		<p>Let's assume that, F(t) has it's maximum value at <b lang="latex"> t = t_{0}</b></p>
+
+		<p><b lang="latex">F'(t = t_{0}) = 0</b></p>
+
+		<p><b lang="latex"> \rightarrow \frac{df}{dx} \frac{dx}{dt} + \frac{df}{dy} \frac{dy}{dt} = 0</b></p>
+
+		<p>Again, we can modify this equation by usage of inner product and gradient vector</p>
+
+		<p><b lang="latex"> \rightarrow ( \frac{df}{dx} i + \frac{df}{dy} j ) \:\:\: . \:\:\: (\frac{dx}{dt}i + \frac{dy}{dt}j)</b></p>
+
+		<p>Consequently,</p>
+
+		<p><b lang="latex"> \rightarrow \nabla_{f(x,y)} \textit{\:\:\: . \:\:\:} r'(t)= 0</b></p>
+
+		<p>At the extreme point of <b lang="latex">f(x,y)</b>, inner product of gradient of 
+		<b lang="latex">f(x,y)</b> with tangent vector <b lang="latex">r'(t)</b> is equal to zero, so they are orthogonal.</p>
+
+		<p>We also know that, gradient of constraint function <b lang="latex">g(x,y)</b> is also orthogonal with <b lang="latex">r'(t)</b> 
+		for all <b lang="latex">x</b> and <b lang="latex">y</b> values.</p>
+
+		<p>So, here we observe that, at extreme point of <b lang="latex">f(x,y)</b>, normal line of it -which is <b lang="latex"> \nabla_{f(x_{0},y_{0})}</b>- 
+		is parallel to normal line of g(x,y) -which is <b lang="latex"> \nabla_{g(x,y)}</b>.</p>
+
+		<p>With this observation, we can finally write the following equation which is worth all the explanations above:</p>
+
+		<p><b lang="latex"> \nabla_{f(x_{0},y_{0})} = \lambda \nabla_{g(x_{0},y_{0})}</b></p>
+
+		<p>So, let's solve our example which consists <b lang="latex"> f(x,y) = xy</b> and <b lang="latex"> g(x,y) = x^2 + y^2 = 16</b></p>
+
+		<p><b lang="latex"> y_{0}i + x_{0}j - \lambda(2x_{0}i + 2y_{0}j) = 0</b></p>
+
+		<p><b lang="latex"> \rightarrow \lambda = \frac{y_{0}}{2x_{0}} </b></p>
+
+		<p><b lang="latex"> \rightarrow \lambda = \frac{x_{0}}{2y_{0}} </b></p>
+
+		<p><b lang="latex"> \rightarrow x_{0} = y_{0}</b> and since <b lang="latex"> x_{0}^2 + y_{0}^2 = 16</b>, <b lang="latex"> x_{0} = y_{0} = 2\sqrt{2}</b></p>
+		
             </div>
         </div>
     </div>
