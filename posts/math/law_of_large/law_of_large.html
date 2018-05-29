@@ -117,6 +117,54 @@
 		<b lang="latex">\sigma^2 \geq t^2 P(A)</b>, which alternatively means: <b lang="latex">P(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2}</b>
 
 		<br><br>
+
+		<p><b>Law of Large Numbers:</b></p>
+		<b>Theorem:</b><br>
+		Let <b lang="latex">X_1, X_2, \dots X_n</b> be an independent trials process, with finited expected value <b lang="latex">\mu = E[X_j]</b> and finite variance <b lang="latex">\sigma^{2} = \mathrm{Var}[X]</b>. <br>
+		Let <b lang="latex">S_n = X_1 + X_2 + X_3 + \dots + X_n</b>. <br><br> 
+
+		<b lang="latex">P(|\frac{S_n}{n} - \mu| \geq t) \rightarrow 0</b>, for <b lang="latex">t > 0</b> as <b lang="latex">n \rightarrow \infty</b>.
+
+		<br><br>
+
+		<b>Proof:</b><br>
+		Since <b lang="latex">X_1, X_2, \dots X_n</b> are independent and have the same distributions, we can say that: <br><br>
+
+		<b lang="latex">\mathrm{Var[S_n]} = n \sigma^2</b> 
+		<br><br>
+		and,
+		<br><br>
+		<b lang="latex">\mathrm{Var[\frac{S_n}{n}]} = \frac{\sigma^2}{n}</b>
+
+		<br><br>
+
+		By Chebyshev's inequality, for any <b lang="latex">t > 0</b>,
+
+		<br><br>
+
+		<b lang="latex">P(|\frac{S_n}{n} - \mu| \geq t) \leq \frac{\sigma^{2}}{nt^{2}}</b>
+
+		<br><br>
+
+		Thus, for fixed <b lang="latex">t</b>
+
+		<br><br>
+
+		<b lang="latex">P(|\frac{S_n}{n} - \mu| \geq t) \rightarrow 0</b>
+
+		<br><br>
+
+		as <b lang="latex">n \rightarrow \infty</b>, or equivalently
+
+		<br><br>
+
+		<b lang="latex">P(|\frac{S_n}{n} - \mu| < t) \rightarrow 1</b>
+
+		<br><br>
+
+		as <b lang="latex">n \rightarrow \infty</b>
+
+		<br><br>
         <i>References:</i>
         <ol>
             <li><a href="http://www.ams.sunysb.edu/~jsbm/courses/311/cheby.pdf"</a>
