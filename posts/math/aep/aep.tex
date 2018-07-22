@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+%Gummi|065|=)
+\title{\textbf{Asymptotic Equipartition Property}}
+\date{}
+\begin{document}
+
+\maketitle
+
+This blog post aims to introduce the concept of typical sequence, and some properties of these typical sequences, which are collectively known as Asymptotic Equipartition Property.
+
+\section{Typicality}
+
+Consider a sequence of $L = 20$ bits emitted by a discrete memoryless source (DMS) with
+
+\begin{equation}
+P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}
+\end{equation}
+Which one of the following is more likely to have come out from this particular
+source?
+
+\begin{equation}
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+\end{equation}
+
+\begin{equation}
+1,0,1,0,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0
+\end{equation}
+
+\begin{equation}
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+\end{equation}
+
+The first sequence is a all one sequence. The second one has 14 zeros and
+6 ones. The third is a all zero sequence. Probability of occurrence of the sequences are $\frac{1}{4}^{20}$, $\frac{1}{4}^{20}\times3^{14}$ and $\frac{1}{4}^{20}\times3^{20}$ respectively. 
+\\
+
+All zero and all one sequence are very unlikely to come out of this source
+because I have been given that $P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}$.
+\\
+
+If we take large enough block size it is likely that we should get 0 three fourth of time, and we should get 1 one fourth of time. 
+\\
+
+If we had $P_{U}(0) = 0.99,\:\: P_{U}(1) = 0.01$, then we can say the all zero sequence is most likely to happen.
+\\
+
+The second sequence has 14 zeros and 6 ones. Roughly if we take large enough bits, I expect $\frac{3}{4}$ number of 1s and rest to be zero. Now, we will formally define what is a typical sequence and then we will show some properties of a typical sequence.
+
+\begin{itemize}
+\item Let \textbf{U} denote an output sequence of length \textbf{L} emitted a K-ary DMS and $P_{U}(u)$ is the output probability distribution.
+\item Let \textbf{u} = [$u_{1}$, $u_{2}$, ..., $u_{L}$] denote possible values of, i.e. $u_{j} = \{{a_{1}, a_{2}, ..., a_{K}}\}$ for $1 \leq j \leq L$.
+\item Let $n_{ai}(u)$ denotes the number of occurence of the letter $a_{i}$ in the sequence \textbf{u}. Then \textbf{u} is an $\epsilon-$typical sequence of length \textbf{L} for this K-ary DMS if: \\ \\
+$(1 - \epsilon)P_{u}(a_{i}) \leq \frac{n_{ai}(\textbf{u})}{L} \leq (1 + \epsilon) P_{u}(a_{i})$, $1 \leq i \leq K$
+\end{itemize}
+Please note $\epsilon$ is a small number. We consider the same example as we considered earlier.
+
+\end{document}
