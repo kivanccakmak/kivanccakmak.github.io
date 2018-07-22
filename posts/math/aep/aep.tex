@@ -53,5 +53,96 @@ The second sequence has 14 zeros and 6 ones. Roughly if we take large enough bit
 $(1 - \epsilon)P_{u}(a_{i}) \leq \frac{n_{ai}(\textbf{u})}{L} \leq (1 + \epsilon) P_{u}(a_{i})$, $1 \leq i \leq K$
 \end{itemize}
 Please note $\epsilon$ is a small number. We consider the same example as we considered earlier.
+\\
+
+Here, consider a binary DMS with $P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}$ and let's choose an $\epsilon = \frac{1}{3}$. Then a sequence \textbf{u} of length $L = 20$ is $\epsilon$-typical if and only if both
+
+\begin{equation}
+\frac{2}{3}.\frac{3}{4} \leq \frac{n_{0}(u)}{20} \leq \frac{4}{3}.\frac{3}{4}
+\end{equation}
+
+and
+
+\begin{equation}
+\frac{2}{3}.\frac{1}{4} \leq \frac{n_{1}(u)}{20} \leq \frac{4}{3}.\frac{1}{4}
+\end{equation}
+
+satisfies. 
+\\ \\
+Equivalently, \textbf{u} is $\epsilon$-typical if and only if both
+
+\begin{equation}
+10 \leq n_{0}(u) \leq 20
+\end{equation}
+
+and
+
+\begin{equation}
+4 \leq n_{1}(u) \leq 6
+\end{equation}
+
+
+\section{Properties}
+
+\textit{Property 1}: If \textbf{u} is an $\epsilon$-typical output sequence of length \textbf{L} from a K-ary
+DMS with entropy $H(U)$ in bits, then:
+
+\begin{equation}
+2^{-(1+\epsilon)LH(U)} \leq P_{U}(\textbf{u}) \leq 2^{-(1-\epsilon)LH(U)}
+\end{equation}
+
+\textit{Proof:} From the definition of a DMS, we have
+
+\begin{equation}
+P_{U}(\textbf{u}) = \prod\limits_{j=1}^L P_{U}(u_{j})
+\end{equation}
+
+So, since this is a K-ary source, it will emit $a_{1}, a_{2}, \dots, a_{K}$. So, let us say $a_{1}$ is emitted $n_{a1}(u)$, $a_{2}$ is $n_{a2}(u)$ times, similarly $a_{K}$ is $n_{aK}(u)$ times. 
+
+So, we can write:
+
+\begin{equation}
+P_{U}(\textbf{u}) = \prod_{j=1}^LP_{U}(u_{j}) = \prod_{i=1}^K[P_{U}(a_{i})]^{n_{ai}(\textbf{u})}
+\end{equation}
+
+Here, we can say that:
+\\
+\begin{equation}
+P_{U}(\textbf{u}) = \prod_{i=1}^K[P_{U}(a_{i})]^{n_{ai}(\textbf{u})} = \prod_{i=1}^K[P_{U}(a_{i})]^{LP_{U}(a_{i})} \geq \prod_{i=1}^K[P_{U}(a_{i})]^{(1+\epsilon)LP_{U}(a_{i})}
+\end{equation}
+
+since raising a power of a number in between 0 and 1 (which is probability of $a_{i}$ in this case) with a positive number (which is $\epsilon$ in this case) decreases it's value.
+\\ 
+
+Equivalently (see logarithmic exchange part below),
+\begin{equation}
+P_{U}(\textbf{u}) \geq \prod_{i=1}^K2^{(1+\epsilon)LP_{U}(a_{i})\log_{2}P_{U}(a_{i})}
+\end{equation}
+\\
+
+Simplifying we get,
+\begin{equation}
+P_{U}(\textbf{u}) \geq 2^{(1+\epsilon) L \sum\limits_{i=1}^KP_{U}(a_{i})\log_{2}P_{U}(a_{i})}
+\end{equation}
+\\
+
+Hence
+\begin{equation}
+P_{U}(\textbf{u}) \geq 2^{-(1+\epsilon)LH(U)}
+\end{equation}
+\\
+
+Similar arguments can be used to prove
+\begin{equation}
+P_{U}(\textbf{u}) \leq 2^{-(1-\epsilon)LH(U)}
+\end{equation}
+
+\subsection{Logarithmic Exchange} 
+\textit{Lemma:} $b^{\log_{b}(x)} = x$
+\\ \\
+\textit{Proof:} $log_{b}(x)$ answers \textit{"b to what power equals x?"} via following property.
+\begin{equation}
+\log_{b}(x) = y \Leftrightarrow b^{y} = x
+\end{equation}
 
 \end{document}
