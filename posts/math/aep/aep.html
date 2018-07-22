@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>The Notebook</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../../css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../../js/latexit.js"></script>
+
+</head>
+
+<body>
+
+    <div class="brand">The Notebook</div>
+    <div class="address-bar">İstanbul, Turkey</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">The Notebook</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../../../index.html">About</a>
+                    </li>
+                    <li>
+                        <a href="../../../math.html">Math</a>
+                    </li>
+                    <li>
+                        <a href="../../../chindogu.html">Chindogu</a>
+                    </li>
+                    <li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-left">
+		<h1 class="entry-title">Asymptotic Equipartition Property</h1>
+
+		This blog post aims to introduce the concept of typical sequence, and some properties of these typical sequences, which are collectively known as Asymptotic Equipartition Property. This post aims to explain Asymptotic Equipartition Property.
+
+		<br><br>
+
+		<p><b>Typicality:</b></p>
+
+		Consider a sequence of <b lang="latex">L = 20</b> bits emitted by a discrete memoryless source (DMS) with
+
+		<br><br>
+
+		<b lang="latex">P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}</b>
+
+		<br><br>
+
+		<b lang="latex">
+		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+		</b>
+
+		<br>
+
+		<b lang="latex">
+		1,0,1,0,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0
+		</b>
+
+		<br>
+
+		<b lang="latex">
+		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		</b>
+
+		<br><br>
+
+		The first sequence is a all one sequence. The second one has 14 zeros and
+		6 ones, and the third is a all zero sequence. <br> <br>
+		Probability of occurrence of the sequences are:
+		<br><br>
+
+		<b lang="latex">\frac{1}{4}^{20}$</b>, <b lang="latex">\frac{1}{4}^{20}\times3^{14}</b> and <b lang="latex">\frac{1}{4}^{20}\times3^{20}</b> respectively.
+
+		<br><br>
+
+		All zero and all one sequence are very unlikely to come out of this source
+		because we have been given that: 
+		<br><br>
+
+		<b lang="latex">P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}</b>.
+
+		<br><br>
+
+		If we take large enough block size it is likely that we should get 0 three fourth of time, and we should get 1 one fourth of time.
+
+		<br><br>
+
+		If we had <b lang="latex">P_{U}(0) = 0.99,\:\: P_{U}(1) = 0.01</b>, then we can say the all zero sequence is most likely to happen.
+
+		<br><br>
+		The second sequence has 14 zeros and 6 ones. Roughly if we take large enough bits, I expect <b lang="latex">\frac{3}{4}$</b> number of 1s and rest to be zero. 
+
+		<br><br>
+		
+		Now, we will formally define what is a typical sequence and then we will show some properties of a typical sequence.
+
+		<br><br>
+
+		<ol>
+			<li>Let <b lang="latex">\textbf{U}</b> denote an output sequence of length <b lang="latex">\textbf{L}</b> emitted a K-ary DMS and <b lang="latex">P_{U}(u)</b> is the output probability distribution.</li>
+			<li>Let <b lang="latex">$n_{ai}(u)</b> denotes the number of occurence of the letter <b lang="latex">a_{i}</b> in the sequence <b lang="latex">\textbf{u}</b><li>Let <b lang="latex">\textbf{u} = [$u_{1}$, $u_{2}$, ..., $u_{L}</b>] denote possible values of, i.e. <b lang="latex">u_{j} = \{{a_{1}, a_{2}, ..., a_{K}}\}</b> for <b lang="latex">1 \leq j \leq L</b>.</li>
+		</ol>
+		Then <b lang="latex">\textbf{u}</b> is an <b lang="latex">\epsilon-</b>typical sequence of length <b lang="latex">\textbf{L}</b> for this K-ary DMS if:
+		
+		<br><br>
+
+		<b lang="latex">(1 - \epsilon)P_{u}(a_{i}) \leq \frac{n_{ai}(\textbf{u})}{L} \leq (1 + \epsilon) P_{u}(a_{i})$, $1 \leq i \leq K</b></li>
+
+		<br><br>
+
+		Please note <b lang="latex">\epsilon</b> is a small number. We consider the same example as we considered earlier.
+
+		<br><br>
+        <i>References:</i>
+        <ol>
+            <li><a href="http://textofvideo.nptel.ac.in/117104129/lec9.pdf"</a>
+	    http://textofvideo.nptel.ac.in/117104129/lec9.pdf</li>
+        </ol>
+		
+		</div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright &copy; Kıvanç Çakmak 2016</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
