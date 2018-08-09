@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="../../../css/business-casual.css" rel="stylesheet">
 
+    <!-- My CSS -->
+    <link href="../../../css/my.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -88,69 +91,83 @@
 			<li><p><b>Case 2: </b>p is not the divisor of n, which indirectly means <b lang="latex">p</b> and <b lang="latex">n</b> are relatively prime numbers. 
 			We provide the proof with the help of numbers <b lang="latex"> n.2n.3n.4n.\dots (p-1)n</b></li></p>
 		</ul>
+		<br>
 		<p>Here the key point is :</p>
 
-		<p><b lang="latex"> r_1 = \bmod(n,p)</b></p>
+		<p class="equation"><b lang="latex"> r_1 = \bmod(n,p)</b></p>
 
-		<p><b lang="latex"> r_{2} = \bmod(2n,p)</b></p>
+		<p class="equation"><b lang="latex"> r_{2} = \bmod(2n,p)</b></p>
 
-		<p><b lang="latex"> \dots </b></p>
+		<p class="equation"><b lang="latex"> \dots </b></p>
 
-		<p><b lang="latex"> r_{p-1} = \bmod(n(p-1),p)</b></p>
+		<p class="equation"><b lang="latex"> r_{p-1} = \bmod(n(p-1),p)</b></p>
 
+		<br>
 		<p>All of these reminders, which are <b lang="latex"> r_{1}, r_{2} \dots r_{p-1}</b> equals to different values.</p>
 		
+		<br>
 		<p>The reason is quite straightforward! Since <b lang="latex">n</b> and <b lang="latex">p</b> are relatively numbers, multiple of <b lang="latex">n</b>, 
 		-which is less than <b lang="latex">p</b> and represented by <b lang="latex">A</b>- can not provide this equation: <b lang="latex"> An = pB</b> 
 		for integer <b lang="latex">B</b>. 
 		Let's try to prove this claim as well. If we can show that equation <b lang="latex"> An = pB \rightarrow \frac{A}{B} = \frac{p}{n}</b> 
-		does not hold, it contradicts and our claim would be proved by well-known method, called contradiction. Here is the point: 
+		does not hold, it contradicts and our claim would be proved by well-known method, called contradiction. 
+		<br><br>
+		
+		Here is the point: 
 		since <b lang="latex">p</b> and <b lang="latex">n</b> are relatively prime numbers, they don't have any common divisor. 
 		On the other hand, since <b lang="latex">A</b> is less than p by problem definition, they must have one to satisfy this equation, 
 		nevermore there is no. So, equation contradicts and now we are sure that, we can not get same
 		reminder of <b lang="latex">p</b> for numbers <b lang="latex">k.n</b> and <b lang="latex">k.n + A.n</b> -where 
 		<b lang="latex">A</b> is less than <b lang="latex">p</b>.
 		</p>
+		<br>
 		<p>After this proof, we need to keep going on. Before that, please notice that set of 
 		<b lang="latex"> [r_{1}, r_{2}, r_{3}, \dots r_{p-1}]</b> is equivalent to set of <b lang="latex"> [0, 1, 2 \dots p-1]</b>, 
 		since each of those reminders has to be unique as we proved by contradiction.
 		</p>
+		<br>
 		<p>Here we go. The sign " <b lang="latex">x | y</b> " means that "x divides y".</p>
-
-		<p><b lang="latex"> n = p.k_{1} + r_{1} \rightarrow p | (n - r_{1})</b></p>
-
-		<p><b lang="latex"> 2n = p.k_{2} + r_{2} \rightarrow p | (2n - r_{2})</b></p>
-
-		<p><b lang="latex"> 3n = p.k_{3} + r_{3} \rightarrow p | (3n - r_{3})</b></p>
-
-		<p><b lang="latex"> \dots </b></p>
-
-		<p><b lang="latex"> (p-1)n = p.k_{p-1} + r_{p-1} \rightarrow p | ( (p-1)n - r_{p-1})</b></p>
 		<br><br>
-		<p><b>Small Theorem: </b> Let <b lang="latex">a, b, c, d</b> and <b lang="latex">p</b> are integers such that, 
+
+		<p class="equation"><b lang="latex"> n = p.k_{1} + r_{1} \rightarrow p | (n - r_{1})</b></p>
+
+		<p class="equation"><b lang="latex"> 2n = p.k_{2} + r_{2} \rightarrow p | (2n - r_{2})</b></p>
+
+		<p class="equation"><b lang="latex"> 3n = p.k_{3} + r_{3} \rightarrow p | (3n - r_{3})</b></p>
+
+		<p class="equation"><b lang="latex"> \dots </b></p>
+
+		<p class="equation"><b lang="latex"> (p-1)n = p.k_{p-1} + r_{p-1} \rightarrow p | ( (p-1)n - r_{p-1})</b></p>
+		<br><br>
+		<p><b>Small Theorem:</b>
+		<br>
+		Let <b lang="latex">a, b, c, d</b> and <b lang="latex">p</b> are integers such that, 
 		<b lang="latex"> p | (a - b)</b> and <b lang="latex"> p | (c - d)</b>. Then, <b lang="latex"> p | (ac - bd)</b>
 		</p>
-		<p><b>Small Proof: </b>Since we have <b lang="latex"> ac - bd = ac - bc + bc - bd = c(a - b) + b(c - d)</b> 
-		proof is complete.
+		<p><b>Small Proof: </b>
+		<br>
+		Since we have <b lang="latex"> ac - bd = ac - bc + bc - bd = c(a - b) + b(c - d)</b>, small proof is complete.
 		<br><br>
+		<p><b>to the end:</b>
 		</p>
 		<p>Here, we use this small proof to conclude Fermat's Little Theorem.
 		<br> 
 		<br>
-		Since <b lang="latex"> p | n - r_{1}</b> and <b lang="latex"> p |2n - r_{2}</b></p>
-		<p><b lang="latex"> p | [n . 2n - r_1 . r_2] \rightarrow p | [2n^{2} - r_{1}r_{2}]</b></p>
+		Since <b lang="latex"> p | n - r_{1}</b> and <b lang="latex"> p |2n - r_{2}</b> we can say that:
+		<br>
+		<p class="equation"><b lang="latex"> p | [n . 2n - r_1 . r_2] \rightarrow p | [2n^{2} - r_{1}r_{2}]</b></p>
 		<p>Here, we can also include <b lang="latex"> 3n - r_3</b> with our new value, since p divides both of them:</p>
-		<p><b lang="latex"> p | [3n . 2n^{2} - r_{3} . r_{2} . r_{1}]</b></p>
-		<p><b lang="latex"> \dots</b></p>
+		<p class="equation"><b lang="latex"> p | [3n . 2n^{2} - r_{3} . r_{2} . r_{1}]</b></p>
+		<p class="equation"><b lang="latex"> \dots</b></p>
 		<p>As you can realize, we can add all numbers up to <b lang="latex">(n - 1)p</b></p>
-		<p><b lang="latex"> p | [n . 2n . 3n \dots (p - 1)n - r_1 . r_2 . r_3 \cdots r_{p-1}]</b></p>
-		<p><b lang="latex"> \rightarrow p | [(p - 1)!n^{p-1} - r_{1} . r_{2} . \cdots r_{p-1}]</b></p>
-		<p><b lang="latex"> \rightarrow p | [(p - 1)!n^{p-1} - (p - 1)!]</b></p>
-		<p><b lang="latex"> \rightarrow p | [(p - 1)! (n^{p-1} - 1)]</b></p>
-		<p><b lang="latex"> \rightarrow p | [1 . 2 . 3 \dots (p - 1) . (n^{p-1} - 1)]</b></p>
+		<p class="equation"><b lang="latex"> p | [n . 2n . 3n \dots (p - 1)n - r_1 . r_2 . r_3 \cdots r_{p-1}]</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow p | [(p - 1)!n^{p-1} - r_{1} . r_{2} . \cdots r_{p-1}]</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow p | [(p - 1)!n^{p-1} - (p - 1)!]</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow p | [(p - 1)! (n^{p-1} - 1)]</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow p | [1 . 2 . 3 \dots (p - 1) . (n^{p-1} - 1)]</b></p>
 		<p>Since p is a prime number and it is not divisible with numbers in between <b lang="latex"> [1, p-1]</b>, it has 
 		to be divisor of <b lang="latex"> n^{p-1} - 1</b> which concludes the proof.</p>
-		<p><b lang="latex"> p | (n^{p-1} - 1) \rightarrow p | (n^{p} - p)</b></p>
+		<p class="equation"><b lang="latex"> p | (n^{p-1} - 1) \rightarrow p | (n^{p} - p)</b></p>
 		<p><i>References:</i>
 		<ol>
 			<li><a href="http://cims.nyu.edu/~kiryl/teaching/aa/les092403.pdf">
