@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="../../../css/business-casual.css" rel="stylesheet">
 
+    <!-- My CSS -->
+    <link href="../../../css/my.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -82,29 +85,25 @@
 
 		<p><b>Typicality:</b></p>
 
-		Consider a sequence of <b lang="latex">L = 20</b> bits emitted by a discrete memoryless source (DMS) with
+		Consider a sequence of <b lang="latex">L = 20</b> bits emitted by a discrete memoryless source (DMS) with: <b lang="latex">P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}</b>
 
 		<br><br>
 
-		<b lang="latex">P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}</b>
-
-		<br><br>
-
-		<b lang="latex">
+		<p class="equation"> <b lang="latex">
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-		</b>
+		</b></p>
 
 		<br>
 
-		<b lang="latex">
+		<p class="equation"> <b lang="latex">
 		1,0,1,0,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0
-		</b>
+		</b></p>
 
 		<br>
 
-		<b lang="latex">
+		<p class="equation"><b lang="latex">
 		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-		</b>
+		</b></p>
 
 		<br><br>
 
@@ -113,7 +112,7 @@
 		Probability of occurrence of the sequences are:
 		<br><br>
 
-		<b lang="latex">\frac{1}{4}^{20}$</b>, <b lang="latex">\frac{1}{4}^{20}\times3^{14}</b> and <b lang="latex">\frac{1}{4}^{20}\times3^{20}</b> respectively.
+		<p class="equation"><b lang="latex">\frac{1}{4}^{20}$</b>, <b lang="latex">\frac{1}{4}^{20}\times3^{14}</b>, <b lang="latex">\frac{1}{4}^{20}\times3^{20}</b></p> respectively.
 
 		<br><br>
 
@@ -121,7 +120,7 @@
 		because we have been given that: 
 		<br><br>
 
-		<b lang="latex">P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}</b>.
+		<p class="equation"><b lang="latex">P_{U}(0) = \frac{3}{4},\:\: P_{U}(1) = \frac{1}{4}</b></p>
 
 		<br><br>
 
@@ -148,11 +147,74 @@
 		
 		<br><br>
 
-		<b lang="latex">(1 - \epsilon)P_{u}(a_{i}) \leq \frac{n_{ai}(\textbf{u})}{L} \leq (1 + \epsilon) P_{u}(a_{i})$, $1 \leq i \leq K</b></li>
+		<p class="equation"><b lang="latex">(1 - \epsilon)P_{u}(a_{i}) \leq \frac{n_{ai}(\textbf{u})}{L} \leq (1 + \epsilon) P_{u}(a_{i})$, $1 \leq i \leq K</b></li></p>
 
 		<br><br>
 
 		Please note <b lang="latex">\epsilon</b> is a small number. We consider the same example as we considered earlier.
+
+		<br><br>
+		<p><b>Properties:</b></p>
+
+		<br>
+		<i><b>Property 1:</b></i> If <b lang="latex">\textbf{u}</b> is an <b lang="latex">\epsilon-</b>typical output sequence of length <b lang="latex">\textbf{L}</b> from a K-ary DMS with entropy <b lang="latex">H(U)</b> in bits, then:
+
+		<br><br>
+		<p class="equation"><b lang="latex">2^{-(1+\epsilon)LH(U)} \leq P_{U}(\textbf{u}) \leq 2^{-(1-\epsilon)LH(U)}</b></p>
+
+		<br><br>
+		<i><b>Proof:</b></i>  From the definition of a DMS, we have
+
+		<br><br>
+
+		<p class="equation"><b lang="latex">P_{U}(\textbf{u}) = \prod\limits_{j=1}^L P_{U}(u_{j})</b></p>
+
+		<br><br>
+
+		So, since this is a K-ary source, it will emit <b lang="latex">$a_{1}, a_{2}, \dots, a_{K}$</b>. So, let us say <b lang="latex">$a_{1}$</b> is emitted <b lang="latex">$n_{a1}(u)$, $a_{2}$</b> is <b lang="latex">$n_{a2}(u)$</b> times, similarly <b lang="latex">$a_{K}$</b> is <b lang="latex">$n_{aK}(u)$</b> times. 
+
+		<br><br>
+		Consequently, we can write:
+		<br><br>
+
+		<p class="equation"><b lang="latex">P_{U}(\textbf{u}) = \prod_{j=1}^LP_{U}(u_{j}) = \prod_{i=1}^K[P_{U}(a_{i})]^{n_{ai}(\textbf{u})}</b></p>
+
+		<br><br>
+
+		Here, we can say that:
+
+		<br><br>
+
+		<p class="equation"><b lang="latex">P_{U}(\textbf{u}) = \prod_{i=1}^K[P_{U}(a_{i})]^{n_{ai}(\textbf{u})} = \prod_{i=1}^K[P_{U}(a_{i})]^{LP_{U}(a_{i})} \geq \prod_{i=1}^K[P_{U}(a_{i})]^{(1+\epsilon)LP_{U}(a_{i})}</b></p>
+
+		<br><br>
+		since raising a power of a number in between 0 and 1 (which is probability of <b lang="latex">$a_{i}$</b> in this case) with a positive number (which is <b lang="latex">$\epsilon$</b> in this case) decreases it's value.
+
+		<br><br>
+		Equivalently (see logarithmic exchange part below),
+
+		<br><br>
+
+		<p class="equation"><b lang="latex">P_{U}(\textbf{u}) \geq \prod_{i=1}^K2^{(1+\epsilon)LP_{U}(a_{i})\log_{2}P_{U}(a_{i})}</b></p>
+
+		<br><br>
+		Simplifying we get,
+
+		<br><br>
+
+		<p class="equation"><b lang="latex">P_{U}(\textbf{u}) \geq 2^{(1+\epsilon) L \sum\limits_{i=1}^KP_{U}(a_{i})\log_{2}P_{U}(a_{i})}</b></p>
+
+		<br><br>
+
+		Hence,
+
+		<br><br>
+		<p class="equation"><b lang="latex">P_{U}(\textbf{u}) \geq 2^{-(1+\epsilon)LH(U)}</b></p>
+		<br><br>
+
+		Similar arguments can be used to prove
+		<br><br>
+		<p class="equation"><b lang="latex">P_{U}(\textbf{u}) \leq 2^{-(1-\epsilon)LH(U)}</b></p>
 
 		<br><br>
         <i>References:</i>

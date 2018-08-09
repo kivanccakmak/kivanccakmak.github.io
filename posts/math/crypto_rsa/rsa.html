@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="../../../css/business-casual.css" rel="stylesheet">
 
+    <!-- My CSS -->
+    <link href="../../../css/my.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -81,11 +84,16 @@
 		since he is aware of how we changed it.
 		</p>
 
+		<br><br>
+
 		<p>Let's say that we have a message <b lang="latex">M</b>. Instead of directly transmitting it, we use a function <b lang="latex"> E(M) = C</b> to encrypt it. 
 		Even third party has an access to <b lang="latex">C</b>. However, she can't get <b lang="latex">M</b> from <b lang="latex">C</b> since she is not aware of our encryption function. 
 		However, our destination has a function, that produces <b lang="latex">M</b> from this encrypted <b lang="latex">C</b>. Mathematically speaking, this one is called <i>as 
 		decryption function which is an inverse of encryption function:</i> <b lang="latex"> D( E(M) ) = D(C) = M</b>
 		</p>
+
+		<br><br>
+
 		<p>For beginning, we examine <b>Substitution Cipher</b> method which used by <b>Julius Caesar</b>. The method is quite simple: 
 		substitute each letter in phrase with <b lang="latex">N</b> shift.</p>
 		
@@ -104,6 +112,9 @@
 		Third party would get encrypted version of message and could not understand what he was saying, 
 		whereas his soldiers could, since they know encryption method of their Emperor.
 		</p>
+
+		<br><br>
+
 		<p>Another method that used from him -as an improved cipher- was <b>Transposition Cipher</b>. So instead of shifting each character, he uses a key to 
 		change locations of letters. Here we need to have a key. Let's assume that our key is <b>24153</b>. So, 
 		our <b>"hello"</b> becomes <b>"elhol"</b>. This seems useless for only "hello". 
@@ -144,14 +155,21 @@
 		<b>symmetric</b> cryptosystem. On the other hand, if they are not equal, we call this as <b>asymmetric</b> crpytosystem.
 		</p>
 
+		<br><br>
+
 		<p>Caesar and soldiers of him used a kind of private method in between them. In other words, they had a deal to 
 		change locations of letters in phrase -or shift letters, before transmission of	message. However, today's world is quite different.
 		</p>
+
+		<br><br>
 		
 		<p>For example, you would like to send an e-mail to one that you have never ever met before. 
 		Since this message travels on many different machines -routers, e-mail servers etc. you need to 
 		encrypt it as well. However, you can not use an approach like Caesar's transposition or key-shift at all, 
 		since your prospective receiver does not have any idea about what would you do.</p>
+
+		<br><br>
+
 		<p>For this reason, you need to express how would you encrypt your message -which should be a common technique that everyone knows. 
 		Third party may realize your technique as well, but still this 	technique needs to provide your privacy against her. 
 		Below, I provide most common <b>public key</b> algorithm developed by Ron <b>R</b>ivest, Adi <b>S</b>hamir and Len <b>A</b>dleman which named <b>RSA</b>.</p>
@@ -169,6 +187,8 @@
 		<br>
 		
 		<p>Let's suppose that I aim to send an e-mail to Bob. Also, assume that there is a third party who has an access to router in between me and Bob.</p>
+
+		<br><br>
 		
 		<p>Here is a symbolic step-by-step pattern about operation:</p>
 		
@@ -184,19 +204,24 @@
 			since he does not have the private key.</p></li>
 			<li><p>Alice receives encrypted message(C) and uses her private key to decrypt it</p></li>
 		</ol></p>
+
+		<br><br>
 		
 		<p>From now on, we break into math to support this symbolic pattern and follow the structure of RSA.</p>
 		
 		<p>There is no math in first step. Simply, I would only denote that "I would like to have communication with you and I'll use RSA encryption". 
 		Since <b>RSA</b> is commonly used, he knows how to follow step's of it.</p>
 		
-		<p>Here we start from <b>Step 2</b>.</p>
+		<br><br>
+		<p><b>Step 2:</b></p>
 
 		<p>After obtaining my intention, Bob needs to produce <b>public key for my encryption</b> and <b>private key for his decryption</b>. 
 		In order to produce a public key, Bob selects two different prime numbers <b lang="latex">p</b> and <b lang="latex">q</b>, then calculates modulus 
 		<b lang="latex"> n = p.q</b>
 		<br>
-		Say, <b lang="latex"> p = 19, q = 11, n = 209</b>.</p>
+		Say, <br><br>
+		
+		<p class="equation"><b lang="latex"> p = 19, q = 11, n = 209</b></p>
 		
 		<p>Afterwards, he computes <b lang="latex"> \phi(n)</b> which is called <a href="../euler_totient/euler_totient.html">totient function</a> 
 		of <b lang="latex">n</b> and gives amount of numbers that are smaller than <b lang="latex">n</b> and relatively prime with <b lang="latex">n</b>.</p>
@@ -211,7 +236,8 @@
 		Value <b lang="latex">d</b> is also called as multiplicative inverse 
 		of <b lang="latex">e</b> modulo <b lang="latex"> \phi(n)</b> and <b lang="latex"> d = 149</b> satisfies for numbers above.</p>
 		
-		<p>Now we are in <b>Step 3</b>.</p>
+		<br><br>
+		<p><b>Step 3:</b></p>
 		
 		<p>I get my public key from Bob, which is <b lang="latex">(n,e)</b>. Here undesirable third party also aware of what public key is. 
 		Consequently, I produce encrypt version <b lang="latex">C</b> of my message <b lang="latex">M</b> by using public key. 
@@ -224,38 +250,45 @@
 		
 		<p>Since calculating <b lang="latex"> 15^{29}</b> might take significant amount of time, we need to get benefits of modular arithmetic:</p>
 
-		<p><b lang="latex"> \bmod(15^2, 209) = 16</b></p>
+		<p class="equation"><b lang="latex"> \bmod(15^2, 209) = 16</b></p>
 
-		<p><b lang="latex"> \bmod(15^4,209) = \bmod( (209 + 16)(209 + 16), 209) = \bmod(16^2, 209) = 47</b></p>
+		<p class="equation"><b lang="latex"> \bmod(15^4,209) = \bmod( (209 + 16)(209 + 16), 209) = \bmod(16^2, 209) = 47</b></p>
 
 		<p>Similarly,</p>
 
-		<p><b lang="latex"> \bmod(15^8,209) = \bmod(15^{4} .15^{4}, 209)</b></p> 
-		<p><b lang="latex"> \rightarrow \bmod( (209K + 47).(209K + 47), 209)</b></p>
-		<p><b lang="latex"> \rightarrow \bmod(47^2,209) = \bmod(2209,209) = 119</b></p>
+		<p class="equation"><b lang="latex"> \bmod(15^8,209) = \bmod(15^{4} .15^{4}, 209)</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow \bmod( (209K + 47).(209K + 47), 209)</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow \bmod(47^2,209) = \bmod(2209,209) = 119</b></p>
 
-		<p><b lang="latex"> \bmod(15^{16},209) = \bmod(119^2,209) = \bmod(14161,209) = 158</b></p>
+		<p class="equation"><b lang="latex"> \bmod(15^{16},209) = \bmod(119^2,209) = \bmod(14161,209) = 158</b></p>
 
-		<p>So, <b lang="latex"> C = \bmod(15^{29},209) = \bmod(15.47.119.158, 209) = \bmod(78.201, 209) = 3</b></p>
+		<p>So,
+		<br><br>
+		<p class="equation"><b lang="latex"> C = \bmod(15^{29},209) = \bmod(15.47.119.158, 209) = \bmod(78.201, 209) = 3</b></p>
 		
-		<p>Finally we are in <b>Step 4</b>.</p>
+		<br><br>
+		<p><b>Step 4:</b></p>
 
 		<p>So, Bob and third party received my encrypted message <b lang="latex">C</b>. Here, they both would try to 
 		get message (<b lang="latex">M</b>) from it. Here, we prove that Bob can get it by using his private key. 
 		Before doing so, we need proof of two following little theorems.</p>		
+		<br><br><br>
+
 		<p><b>Small Theorem 1:</b></p>
 
-		<p><b lang="latex"> \bmod(M^{ed}, n) = \bmod(C^{d}, n)</b></p>
+		<p class="equation"><b lang="latex"> \bmod(M^{ed}, n) = \bmod(C^{d}, n)</b></p>
 		
 		<p><b>Small Proof 1:</b></p>
 
 		<p>Since <b lang="latex"> C = \bmod(M^e, n)</b>, we can say that <b lang="latex"> M^e = K.n + C</b>. 
 		Therefore, <b lang="latex"> \bmod(M^{ed}, n) = \bmod((KN + C)^d, n) = \bmod(C^d, n)</b></p>
+
+		<br><br>
 		
 		<p><b>Small Theorem 2:</b></p>
 
 		<p>Let M be an integer. Let p and q be prime numbers which have different values. 
-		Then if <b lang="latex"> \bmod(a, p) = M</b> and <b lang="latex"> \bmod(a,q) = M</b> equation <b lang="latex"> \bmod(a, p.q) = M</b> should also satisfy.
+		Then if <b lang="latex"> \bmod(a, p) = M</b> and <b lang="latex"> \bmod(a,q) = M</b>, equation <b lang="latex"> \bmod(a, p.q) = M</b> should also satisfy.
 		</p>
 
 		<p><b>Small Proof 2:</b></p>
@@ -264,6 +297,8 @@
 		This implies that, q.j is a multiple of p. We also now that, p can not be a divisor of q, 
 		since they both are prime and they have different values. So, we can say that, <b lang="latex"> j = p.K</b> 
 		hence <b lang="latex"> a = M + q.p.K</b> Following, we conclude this small proof: <b lang="latex"> \bmod(a, p.q) = \bmod(M + q.p.K, p.q) = M</b>.</p>
+
+		<br><br>
 		
 		<p><b>Now we are so close to conclude working principle of RSA!</b></p>
 		
@@ -283,11 +318,11 @@
 			we can say that <b lang="latex"> \bmod(M^{ed}, pq) = \bmod(M, p.q) = M</b> </p></li>
 			<li><p>As a second case, we consider: <b>p is not a divisor of M.</b>
 			<br>
-			<b lang="latex"> M^{ed} = M^{ed-1}. M</b>
+			&nbsp;<b lang="latex"> M^{ed} = M^{ed-1}. M</b>
 			<br>
-			<b lang="latex"> \rightarrow M^{(p-1).(q-1).k}. M</b>
+			&nbsp;<b lang="latex"> \rightarrow M^{(p-1).(q-1).k}. M</b>
 			<br>
-			<b lang="latex"> \rightarrow M^{(p-1)^{(q-1).k}}.M</b>
+			&nbsp;<b lang="latex"> \rightarrow M^{(p-1)^{(q-1).k}}.M</b>
 			<br>
 			<br>
 			Here, we would consider <b lang="latex"> \bmod( M^{ed}, p) = \bmod( M^{(p-1)^{(q-1).k}}, p)</b>
