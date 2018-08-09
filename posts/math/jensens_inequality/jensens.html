@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="../../../css/business-casual.css" rel="stylesheet">
 
+    <!-- My CSS -->
+    <link href="../../../css/my.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -79,11 +82,11 @@
 		This blog post aims to prove the Jensen's inequality, which states that for a random variable <b lang="latex">x</b> and a concave function <b lang="latex">f(x)</b>, the following equation holds:
 
 		<br><br>
-		<b lang="latex">E[f(x)] \leq f(E[f(x)]) </b>
+		<p class="equation"><b lang="latex">E[f(x)] \leq f(E[f(x)]) </b></p>
 		<br><br>
 		i.e.
 		<br><br>
-		<b lang="latex">\sum_{i=1}^k p_{i} f(x_{i}) \leq f(\sum_{i=1}^k p_{i} f(x_{i})) </b>
+		<p class="equation"><b lang="latex">\sum_{i=1}^k p_{i} f(x_{i}) \leq f(\sum_{i=1}^k p_{i} f(x_{i})) </b></p>
 		<br><br>
 
 		<p><b>Preliminary Definitions on Concave and Convex:</b></p>
@@ -106,8 +109,8 @@
 		</div>
 		<br><br>
 
-		<p><b lang="latex">\texttt{concave: }$f((1-\lambda)a + \lambda b) \geq (1-\lambda)f(a) + \lambda f(b)$</b></p>
-		<p><b lang="latex">\texttt{convex: }$f((1-\lambda)a + \lambda b) \leq (1-\lambda)f(a) + \lambda f(b)$</b></p>
+		<p class="equation"><b lang="latex">\texttt{concave: }$f((1-\lambda)a + \lambda b) \geq (1-\lambda)f(a) + \lambda f(b)$</b></p>
+		<p class="equation"><b lang="latex">\texttt{convex: }$f((1-\lambda)a + \lambda b) \leq (1-\lambda)f(a) + \lambda f(b)$</b></p>
 
 		<br>
 
@@ -126,7 +129,7 @@
 
 		<br><br>
 
-		<b lang="latex">f(X) \leq f(E[X]) + (X - E[X])f^{\prime}(E[X])</b>
+		<p class="equation"><b lang="latex">f(X) \leq f(E[X]) + (X - E[X])f^{\prime}(E[X])</b></p>
 
 		<br><br>
 
@@ -134,7 +137,7 @@
 
 		<br><br>
 
-		<b lang="latex">E[f(x)] \leq f(E[X]) + f^{\prime}(E[X])E[(X - E[X])] = f(E[X])</b>
+		<p class="equation"><b lang="latex">E[f(x)] \leq f(E[X]) + f^{\prime}(E[X])E[(X - E[X])] = f(E[X])</b></p>
 
 		<br><br>
 
@@ -142,7 +145,7 @@
 
 		<br><br>
 
-		<b lang="latex">E[X] = \mu</b>, <b lang="latex">E[(X - E[x])] = E[X - \mu] = E[X] - E[\mu] = \mu - \mu = 0</b>
+		<p class="equation"><b lang="latex">E[X] = \mu</b>, <b lang="latex">E[(X - E[x])] = E[X - \mu] = E[X] - E[\mu] = \mu - \mu = 0</b></p>
 
 		<br><br>
 
