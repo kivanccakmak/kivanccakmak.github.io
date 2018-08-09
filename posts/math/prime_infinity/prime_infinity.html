@@ -78,61 +78,61 @@
             <div class="box">
                 <div class="col-lg-12 text-left">
 		<h1 class="entry-title">Proof on Infinity of Prime Numbers</h1>
-		<p>In this post, I show that we have infinitely many prime numbers. To do so, I use a proof from 300 BC which 
-		provided by Greek Mathematician. The one that people usually call as “Father of Geometry” or <b>Euclid</b> of Alexandria.</p>
-		<br>
-		<p><b><i>intro:</i></b></p>
+		In this post, I show that we have infinitely many prime numbers. To do so, I use a proof from 300 BC which 
+		provided by Greek Mathematician. The one that people usually call as “Father of Geometry” or <b>Euclid</b> of Alexandria.
+		<br><br>
+		<b><i>intro:</i></b>
 	
-		<p>Let's write prime numbers in an ascending manner, 
+		<br>
+		Let's write prime numbers in an ascending manner, 
 
 		<p class="equation"><b lang="latex"> p_1 = 2, p_2 = 3, p_3 = 5, p_4 = 7</b></p>
 
-		<p>When we check the numbers which are in a pattern of: <br><br>
+		When we check the numbers which are in a pattern of: <br><br>
 		<b lang="latex"> p_1.p_2 + 1 = 2.3 + 1 = 7</b>,&nbsp;
 		<b lang="latex"> p_1.p_2.p_3 + 1 = 2.3.5 + 1 = 31</b>,&nbsp;
-		<b lang="latex"> p_1.p_2.p_3.p_4 + 1 = 2.3.5.7 + 1 = 211</b></p>
-		<br>
-		<p> we oftenly come up with a prime number.
+		<b lang="latex"> p_1.p_2.p_3.p_4 + 1 = 2.3.5.7 + 1 = 211</b>
+		<br><br>
+		we oftenly come up with a prime number.
 		<br><br>
 		But how can we be 
 		sure about primality of number <b lang="latex"> A = p_1.p_2 \dots p_n + 1</b> for all values of <b lang="latex">n</b>?
-		</p>
 
+		<br><br>
+		<b><i>proof:</i></b>
 		<br>
-		<p><b><i>proof:</i></b></p>
-		<p>Here we use contradiction technique to check: We intuitively think that <b lang="latex">A</b> is a prime number, since it empirically is. 
+		Here we use contradiction technique to check: We intuitively think that <b lang="latex">A</b> is a prime number, since it empirically is. 
 		Now we set up an equation which assumes that <b lang="latex">A</b> is a non-prime number and try to show that this equation would not hold --hence it contradicts.
-		</p>
 
-		<br>
-		<p>Following equation assumes that <b lang="latex">A</b> is a divisor of some number.
+		<br><br>
+		Following equation assumes that <b lang="latex">A</b> is a divisor of some number.
 		
 		<br><br>
 		We clearly know that, every number -except 1- is at least multiple 
 		of one prime number. 
 		
 		<br><br>
-		For this reason, let's say that <b lang="latex"> p_r</b> is a divisor of <b lang="latex">A</b>.</p>
+		For this reason, let's say that <b lang="latex"> p_r</b> is a divisor of <b lang="latex">A</b>.
+		<br><br>
 
 		<p class="equation"><b lang="latex"> A = p_1.p_2.p_3 \dots p_r \dots p_n + 1 \rightarrow \frac{A}{p_r} = p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n + \frac{1}{p_r}</b>.</p>
 
-		<br><br>
-		<p>Consequently we have 
+		Consequently we have 
 		
-		<br>
+		<br><br>
 		<p class="equation"><b lang="latex"> \frac{A}{p_r} - p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n = \frac{1}{p_r}</b></p>
 
 		<br>
-		<p>Let's concentrate on this last equation. 
+		Let's concentrate on this last equation. 
 		<br><br>
 		
 		<b lang="latex"> \frac{A}{p_r}</b> has to be an integer, since we assume <b lang="latex">A</b> is a 
 		multiple of <b lang="latex"> p_r</b>. 
-		<br><br>
+		<br>
 		Second term <b lang="latex"> p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n</b> is also integer, nevertheless 
 		<b lang="latex"> \frac{1}{p_r}</b> is not. 
 		
-		<br><br>
+		<br>
 		So, our non-primality assumption of <b lang="latex">A</b> was wrong. Consequently, this wrong assumption proves us that,
 		<b lang="latex">A</b> would always be prime for any value of n.</p>
 		
