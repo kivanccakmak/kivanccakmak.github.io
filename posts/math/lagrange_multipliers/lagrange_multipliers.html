@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="../../../css/business-casual.css" rel="stylesheet">
 
+    <!-- My CSS -->
+    <link href="../../../css/my.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -75,28 +78,27 @@
             <div class="box">
                 <div class="col-lg-12 text-left">
 		<h1 class="entry-title">On Lagrange Multipliers</h1>
-		<p>This blog post is aimed to explain proof of Lagrange Multipliers. I tried to express everything in a simple fashion, 
+		This blog post is aimed to explain proof of Lagrange Multipliers. I tried to express everything in a simple fashion, 
 		nevertheless prospective reader needs to have some background on basics of calculus.
-		</p>
-		<p>I’ll provide motivation to use Lagrange Multipliers with a simple problem. Throughout this post, I’ll use the following 
+		<br><br>
+		
+		I’ll provide motivation to use Lagrange Multipliers with a simple problem. Throughout this post, I’ll use the following 
 		problem statement to have expository propositions on some circumstances.
-		</p>
-		<p>
+		<br><br>
+
 		Here I have two functions which are <b lang="latex">f(x,y) = x \times y</b> and <b lang="latex">g(x,y) = x^{2} + y^{2} = 16</b>.
 		And I'm only interest in positive x and y values. As you might observe from the graph below <b lang="latex">f(x,y)</b>
 	        is defined in every place in first region -blue lines. Nevertheless, <b lang="latex">g(x,y)</b> is only defined on 
 		top of red line; circle. 
-		</p>
-		<p>		
+		<br><br>
+
 		My aim to use Lagrange Multipliers is finding <b lang="latex">x</b> and <b lang="latex">y</b>
 		values pair which satisfies <b lang="latex">x^{2} + y^{2} = 16</b> and provides highest <b lang="latex">x \times y</b>.
 		In other words, I want to find a point on first region of circle -not inside but on- which provides highest <b lang="latex">x \times y</b>.
 		For example, when <b lang="latex">x = 4</b> and <b lang="latex">y = 0</b>, equation <b lang="latex">x^{2} + y^{2} = 16</b> is satisfied.
 		Nevertheless, this values provide <b lang="latex">x \times y = 0 \times 4 = 0</b>, which does not seem highest <b lang="latex">f(x, y)</b>
 		value on circle at glance
-		</p>
-		<br>
-		<br>
+		<br><br>
 		</div>
 		<div class="row text-center">
 			<figure>
@@ -106,20 +108,28 @@
 		</div>
 		<br>
 		<br>
-		<p>
-		Mathematical representation of explanation above takes only one line: <b lang="latex">\textit{ max } f(x, y) \textit{ subject to } g(x,y)</b>
-		</p>
-		<p>
+		Mathematical representation of explanation above takes only one line: 
+		<br><br>
+		<p class="equation"><b lang="latex">\textit{ max } f(x, y) \textit{ subject to } g(x,y)</b></p>
+		<br>
+
 		Function <b lang="latex">g(x,y)</b> is mostly called as a constraint function. Again, <b lang="latex">f(x,y)</b> is defined in many places, but we 
 		only interest the values that provides highest <b lang="latex">f(x,y)</b> and satisfies constraint <b lang="latex">g(x,y)</b>.
-		</p>
-		<p>
+		<br><br>
+
 		First we parametrize our constraint function <b lang="latex">g(x, y)</b>
 		</p>
-		<p><b lang="latex">x^{2} + y^{2} = 16</b></p>
-		<p><b lang="latex">\rightarrow y = \sqrt{16 - x^{2}}</b>, then let <b lang="latex"> y = t</b>. Consequently <b lang="latex"> x = \sqrt{16 - t^2}</b>
-		<p>Here, we define <b lang="latex"> x(t) = \sqrt{16 - t^2} = x</b> and <b lang="latex"> y(t) = t = y</b></p>
-		<p>Consequently, we define our vector-valued function <b lang="latex"> r(t) = ( x(t), y(t) ) = (\sqrt{16-t^2}, t)</b></p>
+		<p class="equation"><b lang="latex">x^{2} + y^{2} = 16</b></p>
+		<p class="equation"><b lang="latex">\rightarrow y = \sqrt{16 - x^{2}}</b></p>
+		<br>
+
+		Then, let <b lang="latex"> y = t</b>, <b lang="latex"> x = \sqrt{16 - t^2}</b>
+		<br><br>
+
+		Here, we define <b lang="latex"> x(t) = \sqrt{16 - t^2} = x</b> and <b lang="latex"> y(t) = t = y</b>
+		<br><br>
+
+		Consequently, we define our vector-valued function <b lang="latex"> r(t) = ( x(t), y(t) ) = (\sqrt{16-t^2}, t)</b>
 		<br>
 		<br>
 		<div class="row text-center">
@@ -130,39 +140,54 @@
 		</div>
 		<br>
 		<br>
-		<p>So, we can say that <b lang="latex"> g(x(t),y(t)) = g(\sqrt{16 - t^2}, t) = g(x, y)</b></p>
-		<p>As you might notice, vector-valued function <b lang="latex"> r(t) </b> assigns a vector in 2D space with respect to variable <b lang="latex">t</b>. 
+		So, we can say that <b lang="latex"> g(x(t),y(t)) = g(\sqrt{16 - t^2}, t) = g(x, y)</b>
+		<br><br>
+		As you might notice, vector-valued function <b lang="latex"> r(t) </b> assigns a vector in 2D space with respect to variable <b lang="latex">t</b>. 
 		Also note that, since we interest the points in first region and circle, <b lang="latex"> t \in [0,4]</b>
-		</p>
-		<p>Are you with me so far? :)</p>
-		<p>If so, here we'll use <b lang="latex">r(t)</b> in order to bound <b lang="latex">f(x,y)</b></p>
-		<p>Lets define a modified version of <b lang="latex">f(x,y)</b> which is <b lang="latex">F(t) = f(x(t),y(t)) = f(\sqrt{16 - t^2},t)</b></p>		
-		<p>For example</p>
-		<p><b lang="latex"> F(0) = f(x(0),y(0)) = f(\sqrt{16 - 0^2}, 0) = f(\sqrt{16},0) = \sqrt{16}.0 = 0</b></p>
-		<p><b lang="latex"> F(1) = f(x(1),y(1)) = f(\sqrt{16 - 1^2}, 1) = f(\sqrt{15},1) = \sqrt{15}.1 = \sqrt{15}</b></p>
-		<p><b lang="latex"> F(2) = f(x(2),y(2)) = f(\sqrt{16 - 2^2}, 2) = f(\sqrt{12},2) = \sqrt{12}.2 = 4\sqrt{3}</b></p>
-		<p><b lang="latex"> \dots </b></p>
-		<p><b lang="latex"> F(4) = f(x(4),y(4)) = f(\sqrt{16 - 4^2},4) =0.4 = 0</b></p>
-		<p>So, if we can find <b lang="latex"> t_{0}</b> which provides highest <b lang="latex">F(t)</b> over <b lang="latex"> t \in [0,4]</b>, 
+		<br><br>
+		
+		Are you with me so far? :)
+
+		<br><br>
+
+		If so, here we'll use <b lang="latex">r(t)</b> in order to bound <b lang="latex">f(x,y)</b>
+
+		<br><br>
+
+		Lets define a modified version of <b lang="latex">f(x,y)</b> which is <b lang="latex">F(t) = f(x(t),y(t)) = f(\sqrt{16 - t^2},t)</b>
+		<br><br>
+		For example
+		<br><br>
+		<p class="equation"><b lang="latex"> F(0) = f(x(0),y(0)) = f(\sqrt{16 - 0^2}, 0) = f(\sqrt{16},0) = \sqrt{16}.0 = 0</b></p>
+		<p class="equation"><b lang="latex"> F(1) = f(x(1),y(1)) = f(\sqrt{16 - 1^2}, 1) = f(\sqrt{15},1) = \sqrt{15}.1 = \sqrt{15}</b></p>
+		<p class="equation"><b lang="latex"> F(2) = f(x(2),y(2)) = f(\sqrt{16 - 2^2}, 2) = f(\sqrt{12},2) = \sqrt{12}.2 = 4\sqrt{3}</b></p>
+		<p class="equation"><b lang="latex"> \dots </b></p>
+		<p class="equation"><b lang="latex"> F(4) = f(x(4),y(4)) = f(\sqrt{16 - 4^2},4) =0.4 = 0</b></p>
+		<br><br>
+		So, if we can find <b lang="latex"> t_{0}</b> which provides highest <b lang="latex">F(t)</b> over <b lang="latex"> t \in [0,4]</b>, 
 		then we would effectively find <b lang="latex"> x_{0},y_{0}</b> pair that provides highest 
 		<b lang="latex">f(x,y)</b> and satisfies constraint function <b lang="latex">g(x,y)</b> as well.
-		</p>
-		<p>Before trying to do that, we make an investment of next steps by 
+
+		<br><br>
+		Before trying to do that, we make an investment of next steps by 
 		playing around with <b lang="latex">r'(t)</b> and some fundamentals about lines.
-		</p>
-		<p>As explained before, <b lang="latex">r(t)</b> produces vector, that lies on 2D space. Now, we consider derivative of it. 
+
+		<br><br>
+		As explained before, <b lang="latex">r(t)</b> produces vector, that lies on 2D space. Now, we consider derivative of it. 
 		From now on, I'll use <b lang="latex">i</b> and <b lang="latex">j</b> notation -<b lang="latex">i</b> denotes part of 
 		vector that exist in x-axis and <b lang="latex">j</b> denotes part of vector that exist in y-axis.
+		<br><br>
+
+		<p class="equation"><b lang="latex"> r'(t) = \frac{d\bold{r}}{dt} = \lim_{\Delta t \to 0} \frac{\bold{r}(t + \Delta t) - \bold{r}(t)}{\Delta t}</b>
 		</p>
-		<p><b lang="latex"> r'(t) = \frac{d\bold{r}}{dt} = \lim_{\Delta t \to 0} \frac{\bold{r}(t + \Delta t) - \bold{r}(t)}{\Delta t}</b>
-		</p>
-		<p><b lang="latex"> \rightarrow \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}i + \lim_{\Delta t \to 0} \frac{y(t + \Delta t) - y(t)}{\Delta t}j</b></p>
-		<p><b lang="latex"> \rightarrow \frac{dx}{dt}i + \frac{dy}{dt}j</b></p>
-		<p>As <b lang="latex"> \Delta t \to 0</b> distance in between location of <b lang="latex"> r(t)</b> and location of 
+		<p class="equation"><b lang="latex"> \rightarrow \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}i + \lim_{\Delta t \to 0} \frac{y(t + \Delta t) - y(t)}{\Delta t}j</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow \frac{dx}{dt}i + \frac{dy}{dt}j</b></p>
+		
+		<br><br>
+		As <b lang="latex"> \Delta t \to 0</b> distance in between location of <b lang="latex"> r(t)</b> and location of 
 		<b lang="latex"> r(t + \Delta t)</b> decreases along the curve. Consequently, <b lang="latex">r'(t)</b> becomes a tangent vector of curve.
-		</p>
-		<br>
-		<br>
+
+		<br><br>
 		<div class="row text-center">
 			<figure>
 				<img src="img/third.png">
@@ -170,30 +195,34 @@
 				<b lang="latex">r'(t)</b> becomes the tangent vector</b></i></figcaption>
 			</figure>
 		</div>
-		<br>
-		<br>
-		<p>Now, let's investigate this tangent vector with usage of example.</p>
 
-		<p><b lang="latex"> g(x,y) = c = 16</b></p>
+		<br><br>
+		Now, let's investigate this tangent vector with usage of example.
 
-		<p>Since we can parametrize g(x,y) in a form of g(x(t), y(t)) as we've done above:</p>
+		<p class="equation"><b lang="latex"> g(x,y) = c = 16</b></p>
+
+		<br><br>
+		Since we can parametrize g(x,y) in a form of g(x(t), y(t)) as we've done above:</p>
 		
-		<p><b lang="latex"> \frac{d}{dt} g(x(t),y(t)) = \frac{d}{dt}c</b></p>
+		<p class="equation"><b lang="latex"> \frac{d}{dt} g(x(t),y(t)) = \frac{d}{dt}c</b></p>
 
-		<p><b lang="latex"> \rightarrow \frac{dg}{dx} \frac{dx}{dt} + \frac{dg}{dy} \frac{dy}{dt} = 0</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow \frac{dg}{dx} \frac{dx}{dt} + \frac{dg}{dy} \frac{dy}{dt} = 0</b></p>
 
-		<p>Now, we can modify this equation with usage of inner product and gradient vector</p>
+		<br><br>
+		Now, we can modify this equation with usage of inner product and gradient vector
 
-		<p><b lang="latex"> \rightarrow (\frac{dg}{dx}i + \frac{dg}{dy}j) \:\:\: . \:\:\: (\frac{dx}{dt}i + \frac{dy}{dt}j) = 0</b></p>
+		<br><br>
+		<p class="equation"> <b lang="latex"> \rightarrow (\frac{dg}{dx}i + \frac{dg}{dy}j) \:\:\: . \:\:\: (\frac{dx}{dt}i + \frac{dy}{dt}j) = 0</b></p>
 
-		<p><b lang="latex"> \rightarrow \nabla_{g(x,y)} \textit{\:\:\: . \:\:\:} r'(t)= 0</b></p>
+		<br><br>
+		<p class="equation"> <b lang="latex"> \rightarrow \nabla_{g(x,y)} \textit{\:\:\: . \:\:\:} r'(t)= 0</b></p>
 
-		<p>So, here we show that, if we have a function, the gradient of it -which is <b lang="latex"> \nabla_{g(x,y)}</b> - 
+		<br><br>
+		So, here we show that, if we have a function, the gradient of it -which is <b lang="latex"> \nabla_{g(x,y)}</b> - 
 		is perpendicular to it's tangent curve. Below, we graphically illustrate this statement for our constraint function as well. 
 		Note that, any level curve satisfies this orthogonality property.		
-		</p>
-		<br>
-		<br>
+
+		<br><br>
 		<div class="row text-center">
 			<figure>
 				<img src="img/fourth.png">
@@ -203,16 +232,22 @@
 		</div>
 		<br>
 		<br>
-		<p>Now, we would find the equation of this tangent vectors. In order to do that, here we provide small proposition and proof; 
+		Now, we would find the equation of this tangent vectors. In order to do that, here we provide small proposition and proof; 
 		if you are familiar, you might comfortably skip.
-		</p>
-		<p><b>Small Theorem 1:</b></p>
-		<p>Let <b lang="latex"> y_{1} = mx + c</b> and <b lang="latex"> y_{2} = nx + d</b>. If this two lines are perpendicular, <b lang="latex">m \times n = -1</b></p>
-		<p><b>Small Proof 1: </b></p>
-		<p><b lang="latex"> m = \tan{\theta}</b> and <b lang="latex"> n = \tan{\phi}</b> In order to provide orthogonality, <b lang="latex"> \phi - \theta = 90^{\circ}</b></p>
-		<p>So, <b lang="latex"> m = \tan{\theta} = \tan{(\phi - 90^{\circ})} = \frac{sin(\phi - 90^{\circ})}{cos(\phi - 90^{\circ})} = 
-		\frac{-\cos(\phi)}{\sin(\phi)} = \frac{-1}{\tan(\phi)} = \frac{-1}{n}</b>
-		</p>
+
+		<br><br>
+		<b>Small Theorem 1:</b><br>
+		Let <b lang="latex"> y_{1} = mx + c</b> and <b lang="latex"> y_{2} = nx + d</b>. If this two lines are perpendicular, <b lang="latex">m \times n = -1</b>
+
+		<br><br>
+		<b>Small Proof 1: </b><br>
+		<b lang="latex"> m = \tan{\theta}</b> and <b lang="latex"> n = \tan{\phi}</b> In order to provide orthogonality, <b lang="latex"> \phi - \theta = 90^{\circ}</b>
+		<br><br>
+		So, 
+		
+		<br>
+		<p class="equation"><b lang="latex"> m = \tan{\theta} = \tan{(\phi - 90^{\circ})} = \frac{sin(\phi - 90^{\circ})}{cos(\phi - 90^{\circ})} = 
+			\frac{-\cos(\phi)}{\sin(\phi)} = \frac{-1}{\tan(\phi)} = \frac{-1}{n}</b></p>
 		<br>
 		<br>
 		<div class="row text-center">
@@ -224,18 +259,21 @@
 		</div>
 		<br>
 		<br>
-		<p>By usage of this information, let's try to find tangential vector at <b lang="latex"> (2\sqrt{2}, 2\sqrt{2})</b> on our <b lang="latex">g(x,y)</b></p>
+		By usage of this information, let's try to find tangential vector at <b lang="latex"> (2\sqrt{2}, 2\sqrt{2})</b> on our <b lang="latex">g(x,y)</b>
 
-		<p>First, we calculate <b lang="latex"> \nabla_{g(2\sqrt{2}, 2\sqrt{2})} = 2x + 2y |_{2\sqrt{2}, 2\sqrt{2}} = 4\sqrt{2}i + 4\sqrt{2}j </b></p>
+		<br><br>
+		First, we calculate <b lang="latex"> \nabla_{g(2\sqrt{2}, 2\sqrt{2})} = 2x + 2y |_{2\sqrt{2}, 2\sqrt{2}} = 4\sqrt{2}i + 4\sqrt{2}j </b>
 
-		<p>So, slope of normal line at <b lang="latex"> (2\sqrt{2}, 2\sqrt{2})</b> is equal to one. Since normal line is orthogonal to 
-		tangent vector, slope of tangential vector has to be minus one, regarding to small proof.</p>
+		<br><br>
+		So, slope of normal line at <b lang="latex"> (2\sqrt{2}, 2\sqrt{2})</b> is equal to one. Since normal line is orthogonal to 
+		tangent vector, slope of tangential vector has to be minus one, regarding to small proof.
 
-		<p>So, we can express tangential line as following:</p>
+		<br><br>
+		So, we can express tangential line as following:
 
-		<p><b lang="latex"> (y - y_{0}) = m(x - x_{0})</b></p>
+		<p class="equation"><b lang="latex"> (y - y_{0}) = m(x - x_{0})</b></p>
 
-		<p><b lang="latex"> (y - 2\sqrt{2}) = -1(x - 2\sqrt{2}) \rightarrow x + y = 4\sqrt{2}</b></p>
+		<p class="equation"><b lang="latex"> (y - 2\sqrt{2}) = -1(x - 2\sqrt{2}) \rightarrow x + y = 4\sqrt{2}</b></p>
 		<br>
 		<br>
 		<div class="row text-center">
@@ -245,48 +283,61 @@
 		</div>
 		<br>
 		<br>
-		<p>Now, we are close to provide proof of Lagrange Multipliers! :)</p>
+		Now, we are close to provide proof of Lagrange Multipliers! :)
+		<br><br>
 
-		<p>As declared a lot above, we need to find extreme point of <b lang="latex">F(t)</b></p>
+		As declared a lot above, we need to find extreme point of <b lang="latex">F(t)</b>
+		<br><br>
 
-		<p>So, let me try:</p>
+		So, let me try:
+		<br><br>
 
-		<p>Let's assume that, F(t) has it's maximum value at <b lang="latex"> t = t_{0}</b></p>
+		Let's assume that, F(t) has it's maximum value at <b lang="latex"> t = t_{0}</b>
+		<br><br>
 
-		<p><b lang="latex">F'(t = t_{0}) = 0</b></p>
+		<p class="equation"> <b lang="latex">F'(t = t_{0}) = 0</b></p>
 
-		<p><b lang="latex"> \rightarrow \frac{df}{dx} \frac{dx}{dt} + \frac{df}{dy} \frac{dy}{dt} = 0</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow \frac{df}{dx} \frac{dx}{dt} + \frac{df}{dy} \frac{dy}{dt} = 0</b></p>
 
-		<p>Again, we can modify this equation by usage of inner product and gradient vector</p>
+		<br><br>
+		Again, we can modify this equation by usage of inner product and gradient vector
 
-		<p><b lang="latex"> \rightarrow ( \frac{df}{dx} i + \frac{df}{dy} j ) \:\:\: . \:\:\: (\frac{dx}{dt}i + \frac{dy}{dt}j)</b></p>
+		<br><br>
+		<p class="equation"><b lang="latex"> \rightarrow ( \frac{df}{dx} i + \frac{df}{dy} j ) \:\:\: . \:\:\: (\frac{dx}{dt}i + \frac{dy}{dt}j)</b></p>
 
-		<p>Consequently,</p>
+		<br><br>
+		Consequently,
 
-		<p><b lang="latex"> \rightarrow \nabla_{f(x,y)} \textit{\:\:\: . \:\:\:} r'(t)= 0</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow \nabla_{f(x,y)} \textit{\:\:\: . \:\:\:} r'(t)= 0</b></p>
 
-		<p>At the extreme point of <b lang="latex">f(x,y)</b>, inner product of gradient of 
-		<b lang="latex">f(x,y)</b> with tangent vector <b lang="latex">r'(t)</b> is equal to zero, so they are orthogonal.</p>
+		At the extreme point of <b lang="latex">f(x,y)</b>, inner product of gradient of 
+		<b lang="latex">f(x,y)</b> with tangent vector <b lang="latex">r'(t)</b> is equal to zero, so they are orthogonal.
 
-		<p>We also know that, gradient of constraint function <b lang="latex">g(x,y)</b> is also orthogonal with <b lang="latex">r'(t)</b> 
-		for all <b lang="latex">x</b> and <b lang="latex">y</b> values.</p>
+		<br><br>
+		We also know that, gradient of constraint function <b lang="latex">g(x,y)</b> is also orthogonal with <b lang="latex">r'(t)</b> 
+		for all <b lang="latex">x</b> and <b lang="latex">y</b> values.
 
-		<p>So, here we observe that, at extreme point of <b lang="latex">f(x,y)</b>, normal line of it -which is <b lang="latex"> \nabla_{f(x_{0},y_{0})}</b>- 
-		is parallel to normal line of g(x,y) -which is <b lang="latex"> \nabla_{g(x,y)}</b>.</p>
+		<br><br>
+		So, here we observe that, at extreme point of <b lang="latex">f(x,y)</b>, normal line of it -which is <b lang="latex"> \nabla_{f(x_{0},y_{0})}</b>- 
+		is parallel to normal line of g(x,y) -which is <b lang="latex"> \nabla_{g(x,y)}</b>.
 
-		<p>With this observation, we can finally write the following equation which is worth all the explanations above:</p>
+		<br><br>
+		With this observation, we can finally write the following equation which is worth all the explanations above:
 
-		<p><b lang="latex"> \nabla_{f(x_{0},y_{0})} = \lambda \nabla_{g(x_{0},y_{0})}</b></p>
+		<br><br>
+		<p class="equation"><b lang="latex"> \nabla_{f(x_{0},y_{0})} = \lambda \nabla_{g(x_{0},y_{0})}</b></p>
 
-		<p>So, let's solve our example which consists <b lang="latex"> f(x,y) = xy</b> and <b lang="latex"> g(x,y) = x^2 + y^2 = 16</b></p>
+		<br><br>
+		So, let's solve our example which consists <b lang="latex"> f(x,y) = xy</b> and <b lang="latex"> g(x,y) = x^2 + y^2 = 16</b>
 
-		<p><b lang="latex"> y_{0}i + x_{0}j - \lambda(2x_{0}i + 2y_{0}j) = 0</b></p>
+		<br><br>
+		<p class="equation"><b lang="latex"> y_{0}i + x_{0}j - \lambda(2x_{0}i + 2y_{0}j) = 0</b></p>
 
-		<p><b lang="latex"> \rightarrow \lambda = \frac{y_{0}}{2x_{0}} </b></p>
+		<p class="equation"><b lang="latex"> \rightarrow \lambda = \frac{y_{0}}{2x_{0}} </b></p>
 
-		<p><b lang="latex"> \rightarrow \lambda = \frac{x_{0}}{2y_{0}} </b></p>
+		<p class="equation"><b lang="latex"> \rightarrow \lambda = \frac{x_{0}}{2y_{0}} </b></p>
 
-		<p><b lang="latex"> \rightarrow x_{0} = y_{0}</b> and since <b lang="latex"> x_{0}^2 + y_{0}^2 = 16</b>, <b lang="latex"> x_{0} = y_{0} = 2\sqrt{2}</b></p>
+		<p class="equation"><b lang="latex"> \rightarrow x_{0} = y_{0}</b> and since <b lang="latex"> x_{0}^2 + y_{0}^2 = 16</b>, <b lang="latex"> x_{0} = y_{0} = 2\sqrt{2}</b></p>
 		
             </div>
         </div>
