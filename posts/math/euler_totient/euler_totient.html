@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="../../../css/business-casual.css" rel="stylesheet">
 
+    <!-- My CSS -->
+    <link href="../../../css/my.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -81,103 +84,125 @@
 		</blockquote>		
 		<p>This post is dedicated to express the formula and elaborate the proof of it.</p>
 		<br>
-		<br>		
 		<p>Totient function is also called as phi function <b lang="latex"> \phi(n) </b>. For example, <b lang="latex"> \phi(n) = 6</b>, 
 		since we have 6 numbers - <b lang=latex> 1, 2, 4, 5, 7 </b> and <b lang=latex> 8 </b> - that are relatively prime to <b lang=latex> 9 </b> and less than <b lang=latex> 9 </b>.</p>
                 </p>
+		<br>
 		<p>Formula states that, if we factorize our number to it's prime divisors <b lang="latex">n = p_{1}^{n_1} ...p_{k}^{n_k}</b>
-		then we can calculate totient function of our number n as following:</p>
-		<div lang="latex">
+		then we can calculate totient function of our number n as following:
+		<br><br>
+		<p class="equation"> <b lang="latex">
 		 \phi(n) = \prod\limits_{i} p_{i}^{n_i} (1 - \frac{1}{p_{i}}) = n \prod\limits_{i}(1 - \frac{1}{p_i})
-		</div>
-		<p>Let's try this one, when <b lang="latex">n = 12</b>. We can factorize <b lang="latex"> 12 = 2^2 \times 3</b> and totient function
-		 <b lang="latex"> \phi(12) = 12 . (1 - \frac{1}{3}) . (1 - \frac{1}{2}) = 12 . \frac{2}{3} . \frac{1}{2} = 4</b></p> 
+		</b></p>
+		<br><br>
+		<p>Let's try this one, when <b lang="latex">n = 12</b>. We can factorize <b lang="latex"> 12 = 2^2 \times 3</b> and totient function:
+		<br><br>
+		<p class="equation"> <b lang="latex"> \phi(12) = 12 . (1 - \frac{1}{3}) . (1 - \frac{1}{2}) = 12 . \frac{2}{3} . \frac{1}{2} = 4</b></p></p> 
+		<br><br>
 		<p>Since we only have four numbers - <b lang="latex"> 1, 5, 7, 11</b>- that are relatively prime to <b lang="latex">12</b> and less than
 		<b lang="latex">12</b>; formula is valid so far.</p>
 		<p>In order to generalize it <i>-after those example based explanations-</i> let the proof begins...</p>
 		<br>
 		<br>		
-		<p><b>Step 1: </b>We would prove that <b lang="latex"> \phi(p)</b> function is multiplicative where, if <b lang="latex"> p = m \times n</b> 
+		<p><b>Step 1: </b>
+		<br>
+		We would prove that <b lang="latex"> \phi(p)</b> function is multiplicative where, if <b lang="latex"> p = m \times n</b> 
 		and  if <b lang="latex">m</b> and <b lang="latex">n</b> are relatively prime to each other, <b lang="latex"> \phi(p) = \phi(m) \times \phi(n)</b></p>		
-		<p><b>Step 2: </b>We would make the conclusion, which surely takes less effort.</p>
+		<p><b>Step 2: </b>
+		<br>
+		We would make the conclusion, which surely takes less effort.</p>
 		<br>
 		<br>
 		<p>First, let's write all the numbers in between <b lang="latex">1</b> and <b lang="latex">m \times n</b> in a matrix, such as:</p>
-		<br>
-		<b lang="latex"> \begin{bmatrix} 1 & 2 & 3 & \cdots & r & \cdots & m \\
+		<br><br>
+		<p class="equation"> <b lang="latex"> \begin{bmatrix} 1 & 2 & 3 & \cdots & r & \cdots & m \\
 						 m + 1 & m + 2 & m + 3 & \cdots & m + r & \cdots & 2m \\
 				 		 \vdots & \vdots & \vdots & \ddots & \cdots & \ddots & \vdots \\
 				 		 (n - 1)m + 1 & (n - 1)m + 2 & (n - 1)m + 3 & \cdots & (n - 1)m + r & \cdots & mn 
 				 \end{bmatrix}		
-		</b>
-		<br>
-		<br>
+		</b></p>
+		<br><br>
 		<p>An element in this matrix should be relatively prime to both <b lang="latex">m</b> and <b lang="latex">n</b>, in order to be 
 		relatively prime to <b lang="latex">p</b>. In the first row, we have <b lang="latex"> \phi(m)</b> amount of elements, that are relatively
  		prime to <b lang="latex">m</b>. This hold for other rows as well, since <b lang="latex">gcd(r, m) = gcd(r + m, m)</b></p>
+		<br>
 		<p>Therefore, we can say that <b lang="latex"> gcd(r,m) = 1 \rightarrow gcd(r+km, 1) = 1</b>, if r is relatively prime with m all elements in the 
 		column of r is relatively prime with m as well.</p>
+		<br>
 		<p>Now, let's concentrate to find out elements, which are relatively prime to <b lang="latex">n</b>. If we can find out them and if they 
 		are in the same column with elements, that are relatively prime to <b lang="latex">m</b>, then we can be sure that this 
 		element is relatively prime to <b lang="latex">p</b> as well.</p>
+		<br>
 		<p>This time, we would go into our matrix column by column. Vertically consecutive elements in each column has difference of <b lang="latex">m</b>. 
 		Since <b lang="latex">m</b> and <b lang="latex">n</b> are relatively prime numbers, <b lang="latex"> gcd(m,n) = 1</b> which is quite critical for explanations below.</p>
+		<br>
 		<p>
 		From this point of view, we know that
-		<br>
-		<p><b lang="latex"> \bmod (r, n) = \bmod(r + mn, n)</b></p>
-		<p><b lang="latex">\rightarrow \bmod(r + 2mn, n)</b></p>
-		<p><b lang="latex">\rightarrow \bmod(r + kmn, n)</b></p> 
+		<br><br>
+		<p class="equation"> <b lang="latex"> \bmod (r, n) = \bmod(r + mn, n)</b></p>
+		<p class="equation"> <b lang="latex">\rightarrow \bmod(r + 2mn, n)</b></p>
+		<p class="equation"> <b lang="latex">\rightarrow \bmod(r + kmn, n)</b></p> 
 		<br>
 		<p>		
+		<br><br>
 		Since the greatest common divisor of <b lang="latex">m</b> and <b lang="latex">n</b> is equal to <b lang="latex">1</b>, each element in a rows of 
 		column would have unique remainders for modulo <b lang="latex">n</b>. 
-		In order to have same remainder of modulo n in different rows of particular column, we need to satisfy <b lang="latex"> \bmod(r + km, n) = \bmod(r, n) \text{ where } 0 < k < n. </b> 
-		However, adding multiples of relatively prime number, like <b lang="latex">m</b>, on top of any <b lang="latex">r</b>, does not give the same remainder for modulo <b lang="latex">n</b>. 
+		In order to have same remainder of modulo n in different rows of particular column, we need to satisfy:
+		<br><br>
+		<p class="equation"> <b lang="latex">\bmod(r + km, n) = \bmod(r, n) \text{ where } 0 < k < n.</b></p>
+		<br><br>
+		<p>However, adding multiples of relatively prime number, like <b lang="latex">m</b>, on top of any <b lang="latex">r</b>, does not give the same remainder for modulo <b lang="latex">n</b>. 
 		So modulo <b lang="latex">n</b> of all elements in each column is equal to set of numbers from <b lang="latex">0</b> to <b lang="latex">n-1</b>. 
 		Consequently, in each column we have <b lang="latex"> \phi(n)</b> amount of numbers, that are relatively prime to <b lang="latex">n</b>.
 		</p>
+		<br>
 		<p>
 		As a conclusion for this step, we have <b lang="latex">\phi(m)</b> amount of numbers in each row, that are relatively prime to <b lang="latex">m</b> and 
 		<b lang="latex"> \phi(n)</b> amount of numbers in each column, that are relatively prime to <b lang="latex">n</b> and finally we can say that, 
 		this matrix has <b lang="latex"> \phi(m) \times \phi(n)</b> amount of elements, that are relatively prime to <b lang="latex">p</b>.
 		</p>
+		<br>
 		<p>
 		You can check and visualize the proposition above with following matrix, where <b lang="latex">m = 9, n = 4</b>.
 		</p>
 		<br>
-		<b lang="latex"> \begin{bmatrix} 
+		<p class="equation"> <b lang="latex"> \begin{bmatrix} 
 						1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ 
 						10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 \\
 						19 & 20 & 21 & 22 & 23 & 24 & 25 & 26 & 27 \\
 						28 & 29 & 30 & 31 & 32 & 33 & 34 & 35 & 36
-				 \end{bmatrix}</b>
+						\end{bmatrix}</b></p>
 		<br>
 		<br>
 		<p>
 		Now, we are quite close to complete the proof, before that we would have small theorem and proof.
 		</p>
-		<p><b>Small Theorem: </b> If <b lang="latex">p</b> is a prime number, and <b lang="latex">k > 0</b>, then <b lang="latex"> \phi(p^k) = p^k - p^{k-1} = p^k(1 - \frac{1}{p})</b>.
+		<p><b>Small Theorem: </b> If <b lang="latex">p</b> is a prime number, and <b lang="latex">k > 0</b>, then <br><br>
+		
+		<p class="equation"> <b lang="latex"> \phi(p^k) = p^k - p^{k-1} = p^k(1 - \frac{1}{p})</b></p>
+
+		<br><br>
+
 		</p>
 		<p><b>Small Proof: </b> Since <b lang="latex">p</b> is a prime number, the numbers that are not relatively prime with <b lang="latex"> p^{k}</b> has to be 
 		divisible with <b lang="latex">p</b> and we have <b lang="latex">p^{k-1}</b> amount of them. 
 		For example, let <b lang="latex">p = 7</b> and <b lang="latex">k = 2</b>.
 		We are seeking amount of numbers that are relatively prime with <b lang="latex"> p^{k} = 7^2 = 49</b>.
 		<br> 
-		A number has to be divisible with <b lang="latex">7</b> in order to not be relatively prime with 
-`		<b lang="latex"> 49 </b> and we have <b lang="latex"> \frac{p^k}{p^{k-1}} = \frac{7^2}{7^1} = 7</b> of them, 
+		A number has to be divisible with <b lang="latex">7</b> in order to not be relatively prime with
+`		<b lang="latex">49</b> and we have <b lang="latex"> \frac{p^k}{p^{k-1}} = \frac{7^2}{7^1} = 7</b> of them, 
 		which are <b lang="latex">1, 7, 14, 21, 28, 35, 42</b>.
 		</p>
 		<p>By using multiplicative property of <b lang="latex">\phi</b> function and this small theoem, here we accomplish the proof.</p>
 		<p>
 		<p>
-		<b lang="latex">\phi(n) = \phi (p_1^{k_1}) \phi (p_2^{k_2}) \text{ . . . } \phi (p_n^{k_n})</b>
+		<p class="equation"> <b lang="latex">\phi(n) = \phi (p_1^{k_1}) \phi (p_2^{k_2}) \text{ . . . } \phi (p_n^{k_n})</b></p>
 		</p>
 		<p>
-		<b lang="latex"> \rightarrow p_1^{k_1}p_2^{k_2} \text{ . . . } p_n^{k_n} (1 - \frac{1}{p_1}) (1 - \frac{1}{p_2}) \text{ . . . } (1 - \frac{1}{p_n})</b>
+		<p class="equation"> <b lang="latex"> \rightarrow p_1^{k_1}p_2^{k_2} \text{ . . . } p_n^{k_n} (1 - \frac{1}{p_1}) (1 - \frac{1}{p_2}) \text{ . . . } (1 - \frac{1}{p_n})</b></p>
 		</p>
 		<p>
-		<b lang="latex"> \rightarrow n(1 - \frac{1}{p_1})(1 - \frac{1}{p_2}) \text{ . . . }(1 - \frac{1}{p_n})</b>
+		<p class="equation"> <b lang="latex"> \rightarrow n(1 - \frac{1}{p_1})(1 - \frac{1}{p_2}) \text{ . . . }(1 - \frac{1}{p_n})</b></p>
 		</p>                
         <i>References:</i>
         <ol>
