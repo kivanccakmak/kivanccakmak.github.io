@@ -78,21 +78,21 @@
             <div class="box">
                 <div class="col-lg-12 text-left">
 		<h1 class="entry-title">Fermat’s Little Theorem</h1>
-		<p>A French lawyer at the Parlement of Toulouse, and amateur (means lover of) Mathematician in 17th century, called <b>Pierre de Fermat</b> proposed the following statement:</p>
+		A French lawyer at the Parlement of Toulouse, and amateur (means lover of) Mathematician in 17th century, called <b>Pierre de Fermat</b> proposed the following statement:<br>
 		<blockquote>
 		If <b lang="latex">p</b> is a prime number, then for any integer <b lang="latex">n</b>, 
 		the number <b lang="latex"> n^{p} − n</b> is an integer multiple of <b lang="latex">p</b>
 		</blockquote>
 		</div>
-		<p>This post is dedicated to provide the proof of statement</p>
+		This post is dedicated to provide the proof of statement<br>
 		<ul>
-			<li><p><b>Case 1: </b> <b lang="latex">p</b> is the divisor of <b lang="latex">n</b>. 
+			<li><b><i>Case 1: </i></b><b lang="latex">p</b> is the divisor of <b lang="latex">n</b>. 
 			Lets assume <b lang="latex"> n = pk</b> since <b lang="latex"> \frac{n^p - n}{p} = \frac{n(p-1)}{p} = k(p - 1)</b> </li></p>
-			<li><p><b>Case 2: </b>p is not the divisor of n, which indirectly means <b lang="latex">p</b> and <b lang="latex">n</b> are relatively prime numbers. 
+			<li><b><i>Case 2: </i></b>p is not the divisor of n, which indirectly means <b lang="latex">p</b> and <b lang="latex">n</b> are relatively prime numbers.
 			We provide the proof with the help of numbers <b lang="latex"> n.2n.3n.4n.\dots (p-1)n</b></li></p>
 		</ul>
 		<br>
-		<p>Here the key point is :</p>
+		Here the key point is :<br>
 
 		<p class="equation"><b lang="latex"> r_1 = \bmod(n,p)</b></p>
 
@@ -103,10 +103,10 @@
 		<p class="equation"><b lang="latex"> r_{p-1} = \bmod(n(p-1),p)</b></p>
 
 		<br>
-		<p>All of these reminders, which are <b lang="latex"> r_{1}, r_{2} \dots r_{p-1}</b> equals to different values.</p>
+		All of these reminders, which are <b lang="latex"> r_{1}, r_{2} \dots r_{p-1}</b> equals to different values.<br>
 		
 		<br>
-		<p>The reason is quite straightforward! Since <b lang="latex">n</b> and <b lang="latex">p</b> are relatively numbers, multiple of <b lang="latex">n</b>, 
+		The reason is quite straightforward! Since <b lang="latex">n</b> and <b lang="latex">p</b> are relatively numbers, multiple of <b lang="latex">n</b>, 
 		-which is less than <b lang="latex">p</b> and represented by <b lang="latex">A</b>- can not provide this equation: <b lang="latex"> An = pB</b> 
 		for integer <b lang="latex">B</b>. 
 		Let's try to prove this claim as well. If we can show that equation <b lang="latex"> An = pB \rightarrow \frac{A}{B} = \frac{p}{n}</b> 
@@ -119,14 +119,14 @@
 		nevermore there is no. So, equation contradicts and now we are sure that, we can not get same
 		reminder of <b lang="latex">p</b> for numbers <b lang="latex">k.n</b> and <b lang="latex">k.n + A.n</b> -where 
 		<b lang="latex">A</b> is less than <b lang="latex">p</b>.
-		</p>
 		<br>
-		<p>After this proof, we need to keep going on. Before that, please notice that set of 
+		<br>
+		After this proof, we need to keep going on. Before that, please notice that set of 
 		<b lang="latex"> [r_{1}, r_{2}, r_{3}, \dots r_{p-1}]</b> is equivalent to set of <b lang="latex"> [0, 1, 2 \dots p-1]</b>, 
 		since each of those reminders has to be unique as we proved by contradiction.
-		</p>
 		<br>
-		<p>Here we go. The sign " <b lang="latex">x | y</b> " means that "x divides y".</p>
+		<br>
+		Here we go. The sign " <b lang="latex">x | y</b> " means that "x divides y".<br>
 		<br><br>
 
 		<p class="equation"><b lang="latex"> n = p.k_{1} + r_{1} \rightarrow p | (n - r_{1})</b></p>
@@ -139,33 +139,33 @@
 
 		<p class="equation"><b lang="latex"> (p-1)n = p.k_{p-1} + r_{p-1} \rightarrow p | ( (p-1)n - r_{p-1})</b></p>
 		<br><br>
-		<p><b>Small Theorem:</b>
+		<b><i>Small Theorem:</i></b>
 		<br>
 		Let <b lang="latex">a, b, c, d</b> and <b lang="latex">p</b> are integers such that, 
 		<b lang="latex"> p | (a - b)</b> and <b lang="latex"> p | (c - d)</b>. Then, <b lang="latex"> p | (ac - bd)</b>
 		</p>
-		<p><b>Small Proof: </b>
+		<b><i>Small Proof: </i></b>
 		<br>
 		Since we have <b lang="latex"> ac - bd = ac - bc + bc - bd = c(a - b) + b(c - d)</b>, small proof is complete.
 		<br><br>
-		<p><b>to the end:</b>
-		</p>
-		<p>Here, we use this small proof to conclude Fermat's Little Theorem.
+		<b><i>to the end: </i></b>
+		<br>
+		Here, we use this small proof to conclude Fermat's Little Theorem.
 		<br> 
 		<br>
 		Since <b lang="latex"> p | n - r_{1}</b> and <b lang="latex"> p |2n - r_{2}</b> we can say that:
 		<br>
 		<p class="equation"><b lang="latex"> p | [n . 2n - r_1 . r_2] \rightarrow p | [2n^{2} - r_{1}r_{2}]</b></p>
-		<p>Here, we can also include <b lang="latex"> 3n - r_3</b> with our new value, since p divides both of them:</p>
+		Here, we can also include <b lang="latex"> 3n - r_3</b> with our new value, since p divides both of them:</p>
 		<p class="equation"><b lang="latex"> p | [3n . 2n^{2} - r_{3} . r_{2} . r_{1}]</b></p>
 		<p class="equation"><b lang="latex"> \dots</b></p>
-		<p>As you can realize, we can add all numbers up to <b lang="latex">(n - 1)p</b></p>
+		As you can realize, we can add all numbers up to <b lang="latex">(n - 1)p</b></p>
 		<p class="equation"><b lang="latex"> p | [n . 2n . 3n \dots (p - 1)n - r_1 . r_2 . r_3 \cdots r_{p-1}]</b></p>
 		<p class="equation"><b lang="latex"> \rightarrow p | [(p - 1)!n^{p-1} - r_{1} . r_{2} . \cdots r_{p-1}]</b></p>
 		<p class="equation"><b lang="latex"> \rightarrow p | [(p - 1)!n^{p-1} - (p - 1)!]</b></p>
 		<p class="equation"><b lang="latex"> \rightarrow p | [(p - 1)! (n^{p-1} - 1)]</b></p>
 		<p class="equation"><b lang="latex"> \rightarrow p | [1 . 2 . 3 \dots (p - 1) . (n^{p-1} - 1)]</b></p>
-		<p>Since p is a prime number and it is not divisible with numbers in between <b lang="latex"> [1, p-1]</b>, it has 
+		Since p is a prime number and it is not divisible with numbers in between <b lang="latex"> [1, p-1]</b>, it has 
 		to be divisor of <b lang="latex"> n^{p-1} - 1</b> which concludes the proof.</p>
 		<p class="equation"><b lang="latex"> p | (n^{p-1} - 1) \rightarrow p | (n^{p} - p)</b></p>
 		<p><i>References:</i>
