@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+%Gummi|065|=)
+\usepackage[title]{appendix}
+\title{\textbf{Weak Law of Large Numbers}}
+\date{}
+\begin{document}
+
+\maketitle
+
+This post aims to explain Weak Law of Large numbers. To do so, we first introduce Chebyshev Inequality, then provide the theorem and proof of the weak law of large numbers. 
+
+\section{Chebyshev Inequality}
+
+Let X be a random variable with mean $E[X] = \mu$ and variance $\mathrm{Var}[X] = \sigma^2$.  Then, the Chebyshev inequality states that:
+
+\begin{equation}
+ P(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2} , \textit{ for } t > 0 .
+\end{equation} 
+
+let's try to prove.. \\
+
+Let $A$ denote the event $|X - \mu| \geq t$ , and $A^{c}$ the complementary event $(|X - \mu| < \mu )$.
+
+\begin{equation}
+\sigma^2 = E[(X - \mu)^2|A]P(A) + E[(X - \mu)^2|A^{c}]P(A^{c}) 
+\end{equation}
+
+\begin{equation}
+\sigma^2 \geq E[(X - \mu)^2|A]P(A) 
+\end{equation}
+
+since,
+
+\begin{equation}
+0 \leq P(A^{c}) \leq 1 \textit{ and } E[(X - \mu)^2|A^{c}] \geq 0
+\end{equation}
+
+So, whenever $A$ occurs, $|X - \mu| \geq t$, which implies $(X - \mu)^{2} \geq t^{2}$. Here, we can say that: 
+
+\begin{equation}
+E[(X - \mu)^2 | A] \geq t^{2} 
+\end{equation}
+
+finally, by using third equation, can say that, $\sigma^2 \geq t^2 P(A)$ , which alternatively means: 
+
+\begin{equation}
+P(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2} 
+\end{equation}
+
+\section{Weak Law of Large Numbers}
+
+Let $X_1, X_2, \dots X_n$ be an independent trials process, with finited expected value $\mu = E[X_j]$ and finite variance $\sigma^{2} = \mathrm{Var}[X]$. \\
+
+Let $S_n = X_1 + X_2 + X_3 + \dots + X_n$. \\
+
+Weak law of large number states that:
+
+\begin{equation}
+P(|\frac{S_n}{n} - \mu| \geq t) \rightarrow 0 , \textit{ for } t > 0 \textit{ as } n \rightarrow \infty
+\end{equation}
+
+let's try to prove.. \\
+
+Since $X_1, X_2, \dots X_n$ are independent and have the same distributions, we can say that: 
+
+\begin{equation}
+\mathrm{Var[S_n]} = n \sigma^2 
+\end{equation}
+
+and,
+
+\begin{equation}
+\mathrm{Var[\frac{S_n}{n}]} = \frac{\sigma^2}{n} 
+\end{equation}
+
+By Chebyshev's inequality, for any $t > 0$, 
+
+\begin{equation}
+ P(|\frac{S_n}{n} - \mu| \geq t) \leq \frac{\sigma^{2}}{nt^{2}} 
+\end{equation}
+
+Thus, for fixed $t$ 
+
+\begin{equation}
+P(|\frac{S_n}{n} - \mu| \geq t) \rightarrow 0 
+\end{equation}
+
+as $n \rightarrow \infty$, we can say that: 
+
+\begin{equation}
+ P(|\frac{S_n}{n} - \mu| < t) \rightarrow 1 
+\end{equation}
+
+\begin{appendices}
+\section{Variance of $\frac{S_{n}}{n}$}
+\begin{equation}
+\mathrm{Var}[S_n] = \mathrm{Var}[\frac{X_1 + X_2 + \dots X_n}{n}]
+\end{equation}
+
+\begin{equation}
+\mathrm{Var}[\frac{X_1}{n}] + \mathrm{Var}[\frac{X_2}{n}] + \dots + \mathrm{Var}[\frac{X_n}{n}]
+\end{equation}
+
+\begin{equation}
+\frac{1}{n^2}(\mathrm{Var}[X_1] + \mathrm{Var}[X_2] + \dots + \mathrm{Var}[X_n])
+\end{equation}
+
+\begin{equation}
+\frac{1}{n^2} \times n \times \sigma^2 = \frac{\sigma^2}{n}
+\end{equation}
+
+\end{appendices}
+\end{document}
