@@ -1,5 +1,7 @@
 \documentclass[11pt]{article}
 %Gummi|065|=)
+\usepackage[title]{appendix}
+\usepackage{amsmath}
 \title{\textbf{Asymptotic Equipartition Property}}
 \date{}
 \begin{document}
@@ -137,12 +139,45 @@ Similar arguments can be used to prove
 P_{U}(\textbf{u}) \leq 2^{-(1-\epsilon)LH(U)}
 \end{equation}
 
-\subsection{Logarithmic Exchange} 
+
+\textit{Property 2}: The probability $1 - P(F)$, that the lenght $L$ output sequence $U$ from a K-ary DMS is $\epsilon-$typical satisfies:
+
+\begin{equation}
+1 - P(F) \leq 1 - \frac{K}{L\epsilon^{2}P_{min}}
+\end{equation}
+
+where $P_{min}$ is the smallest positive value of $P_{U}(u)$
+
+\begin{appendices}
+\section{Logarithmic Exchange}
 \textit{Lemma:} $b^{\log_{b}(x)} = x$
 \\ \\
 \textit{Proof:} $log_{b}(x)$ answers \textit{"b to what power equals x?"} via following property.
 \begin{equation}
 \log_{b}(x) = y \Leftrightarrow b^{y} = x
 \end{equation}
+\section{Variance and Mean of a Binary Random Variable}
+
+let $P(X=0) = a$ and $P(X=1) = 1 - a$
+
+\begin{equation} \label{mean_x}
+\begin{split}
+E[X] & = (1 - P(X=1)) \times 0 + P(X=1) \times 1 = P(X=1) \\
+& = (1 - a) \times 0 + a \times 1 \\
+& = a
+\end{split}
+\end{equation}
+
+\begin{equation} \label{var_x}
+\begin{split}
+\mathrm{Var}[X] & = E[(X-\mu)^2] \\
+& = (1 - P(X=1)) \times (0 - P(X=1))^2 + P(X=1) \times (1 - P(X=1))^2\\
+& = (1 - a) \times (0 - a)^2 + a \times (1 - a)^2 \\
+& = (1 - a) \times (a^2 +a - a^2) \\
+& = (1 - a) \times a
+\end{split}
+\end{equation}
+
+\end{appendices}
 
 \end{document}
