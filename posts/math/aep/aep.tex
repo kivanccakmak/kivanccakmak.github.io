@@ -158,18 +158,13 @@ where $P_{min}$ is the smallest positive value of $P_{U}(u)$
 \end{equation}
 \section{Variance and Mean of a Binary Random Variable}
 
-let $P(X=0) = a$ and $P(X=1) = 1 - a$
+let $P(X=0) = a$ and $P(X=1) = 1 - a$.
 
 \begin{equation} \label{mean_x}
 \begin{split}
 E[X] & = (1 - P(X=1)) \times 0 + P(X=1) \times 1 = P(X=1) \\
 & = (1 - a) \times 0 + a \times 1 \\
-& = a
-\end{split}
-\end{equation}
-
-\begin{equation} \label{var_x}
-\begin{split}
+& = a \\ \\
 \mathrm{Var}[X] & = E[(X-\mu)^2] \\
 & = (1 - P(X=1)) \times (0 - P(X=1))^2 + P(X=1) \times (1 - P(X=1))^2\\
 & = (1 - a) \times (0 - a)^2 + a \times (1 - a)^2 \\
@@ -178,6 +173,9 @@ E[X] & = (1 - P(X=1)) \times 0 + P(X=1) \times 1 = P(X=1) \\
 \end{split}
 \end{equation}
 
+
 \end{appendices}
+
+
 
 \end{document}
