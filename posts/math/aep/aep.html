@@ -220,6 +220,147 @@
 		<br><br>
 		<p class="equation"><b lang="latex">P_{U}(\textbf{u}) \leq 2^{-(1-\epsilon)LH(U)}</b></p>
 
+
+		<br><br>
+		<i><b>Property 2:</b></i> The probability <b lang="latex">1 - P(F)</b>, that the lenght <b lang="latex">\textbf{L}</b> output sequence <b lang="latex">\textbf{U}</b>  from a K-ary DMS is <b lang="latex">$\epsilon-</b>typical satisfies:
+
+		<br><br>
+		<p class="equation"><b lang="latex">1 - P(F) \leq 1 - \frac{K}{L\epsilon^{2}P_{min}}</b></p> 
+
+		<br>
+		where <b lang="latex">P_{min}</b> is the smallest positive value of <b lang="latex">$P_{U}(u)</b>
+
+		<br><br>
+		<i><b>Proof:</b></i> Interested to show that for large <b lang="latex">\textbf{L}</b>, the output sequence <b lang="latex">\textbf{U}</b> of the DMS is certain to be <b lang="latex">\epsilon-</b>typical.
+
+		<br><br>
+		Here, we will use <a href="http://kivanccakmak.com/posts/math/law_of_large/law_of_large.html">Tchebychef</a> inequality: 
+
+		<p class="equation"><b lang="latex">P(|\frac{n_{A}}{n} - P(A)| \geq \epsilon) \leq \frac{P(A)[1-P(A)]}{n\epsilon^2}</b></p> 
+
+		Let <b lang="latex">B_{i}</b> denote the event that <b lang="latex">\textbf{U}</b> takes on value <b lang="latex">\textbf{u}</b> such that the condition for <b lang="latex">\epsilon-</b>typical sequence is not satisfied. 
+		<br><br>
+		
+		Then,
+
+		<br>
+
+		<p class="equation"> 
+		<b lang="latex">
+			P(B_i) = P(|\frac{n_{a_{i}}}{L} - P_{U}(a_i)| > \epsilon P_{U}(a_i))
+		</b>
+		</p> 
+
+		<br>
+		here, we can say that
+
+		<p class="equation">
+		<b lang="latex">
+			P(B_i) \leq \frac{P_{U}(a_i)[1 - P_{U}(a_i)]}{L[\epsilon P_{U}(a_i)]^2}
+		</b>
+		</p>
+
+		<br>
+		Simplifying, we have
+
+		<br>
+
+		<p class="equation">
+		<b lang="latex">
+		P(B_i) \leq \frac{1 - P_{U}(a_i)}{L \epsilon^{2}P_U(a_i)}
+		</b>
+		</p>
+
+		Let <b lang="latex">P_{min}</b> is the minimum non-zero value of <b lang="latex">P_{U}(u)</b>, we get,
+
+		<br><br>
+		<p class="equation">
+		<b lang="latex">
+			P(B_{i}) < \frac{1}{L \epsilon^{2}P_{min}}
+		</b>
+		</p>
+
+		Let <b lang="latex">F</b> be the failure event that <b lang="latex">\textbf{U}</b> is not <b lang="latex">\epsilon-</b>typical. 
+		
+		<br><br>
+		Since <b lang="latex">F</b> occurs in at least one of the events, <b lang="latex">B_i, 1 \leq i \leq K</b>, using union bounds we get:
+
+		<br><br>
+		<p class="equation">
+		<b lang="latex">
+		P(F) \leq \sum_{i=1}^{K}P(B_i) < \frac{K}{L \epsilon^2 P_{min}}
+		</b>
+		</p>
+
+		<i><b>Property 3: </b></i>The number <b lang="latex">M</b> of <b lang="latex">\epsilon-</b>typical sequence <b lang="latex">\textbf{u}</b> from a K-ary DMS with entropy <b lang="latex">H(U)</b> in bits satisfies:
+
+		<br><br>
+
+		<p class="equation"> 
+		<b lang="latex"> 
+		(1 - \frac{K}{L \epsilon^2 P_{min}}) . 2^{(1-\epsilon)LH(U)} < M \leq 2^{(1 + \epsilon)LH(U)}
+		</b> 
+		</p> 
+
+		<br><br>
+		<i><b>Proof: </b></i> We know that
+
+		<br><br>
+		<p class="equation"> 
+		<b lang="latex"> 
+		1 = \sum_{\forall u} P_{U}(u) \geq M . 2 ^{-(1 + \epsilon)LH(U)}
+		</b> 
+		</p> 
+
+		<br>
+		since <b lang="latex">P_u(u)</b> is lower bounded by <b lang="latex">2^{-(1+\epsilon)}LH(U)</b>.
+
+		<br><br>
+		This gives upper bound 
+
+		<br><br>
+		<p class="equation"> 
+		<b lang="latex"> 
+		M \leq 2 ^ {(1 + \epsilon)LH(U)}
+		</b> 
+		</p> 
+
+		<br><br>
+		Now we are going to prove the lower bound. Total probability of the <b lang="latex">\epsilon-</b>typical sequence is <b lang="latex">1-P(F)</b>, so
+
+		<br><br>
+
+		<br><br>
+		<p class="equation"> 
+		<b lang="latex"> 
+		1 - P(F) \leq M . 2 ^ {-(1 + \epsilon)LH(U)}
+		</b> 
+		</p> 
+
+		<br><br>
+		using property-2, we know that <b lang="latex">P(F) \leq \frac{K}{L \epsilon ^2 P_{min}}</b>. 
+		
+		<br><br>
+		This gives the lower bound.
+
+		<br><br>
+		<p class="equation"> 
+		<b lang="latex"> 
+		M > (1 - \frac{K}{L \epsilon^{2}P_{min}}) . 2 ^ {(1 - \epsilon)LH(U)}
+		</b> 
+		</p> 
+
+		<br><br>
+		Now, lets try to look at these results when <b lang="latex">\textbf{L}</b> is very large. We have shown
+		three properties of typical sequences.
+
+		<br><br>
+		<ol>
+			<li>each of these <b lang="latex">\epsilon-</b>typical sequences has probability equal to <b lang="latex">2^{-LH(U)}</b>.</li>
+			<li>the total probability of these <b lang="latex">\epsilon-</b>typical sequences is very nearly 1</li>
+			<li>when <b lang="latex">\textbf{L}</b> is large and <b lang="latex">\epsilon</b> is small, there are roughly <b lang="latex">2^{LH(U)}</b> amount of <b lang="latex">\epsilon-</b>typical sequences <b lang="latex">\textbf{u}</b>. </li>
+		</ol>
+
 		<br><br>
 		<p><b>Appendix</b></p>
 
@@ -231,6 +372,41 @@
 		<b lang="latex">$log_{b}(x)$</b> answers <i>"b to what power equals x?"</i> via following property:
 		<br><br>
 		<p class="equation"><b lang="latex"> \log_{b}(x) = y \Leftrightarrow b^{y} = x</b></p>
+
+		<br>
+		<i><b>Variance and Mean of a Binary Random Variable:</b></i>
+		<br><br>
+
+		<i><b>Proof:</b></i>
+		let's define a binary random variable first,
+
+		<br>
+		<p class="equation"> <b lang="latex"> P(X=0) = a$ and $P(X=1) = 1 - a</b> </p> 
+
+		then, we can calculate the mean as following:
+		<br>
+
+		<p class="equation"> 
+		<b lang="latex"> 
+			E[X] & = (1 - P(X=1)) \times 0 + P(X=1) \times 1 = P(X=1) \\ \\
+			&= (1 - a) \times 0 + a \times 1 \\
+			& = a \\
+		</b> 
+		</p> 
+
+		<br>
+		likewise, we can calculate the variance as following:
+		<br>
+
+		<p class="equation"> 
+		<b lang="latex"> 
+		\mathrm{Var}[X] & = E[(X-\mu)^2] \\ \\
+		& = (1 - P(X=1)) \times (0 - P(X=1))^2 + P(X=1) \times (1 - P(X=1))^2\\
+		& = (1 - a) \times (0 - a)^2 + a \times (1 - a)^2 \\
+		& = (1 - a) \times (a^2 +a - a^2) \\
+		& = (1 - a) \times a
+		</b> 
+		</p> 
 
 		<br><br>
         <i>References:</i>
