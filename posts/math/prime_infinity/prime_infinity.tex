@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+%Gummi|065|=)
+\usepackage[title]{appendix}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\title{\textbf{Proof on Infinity of Prime Numbers}}
+\date{}
+\begin{document}
+
+\maketitle
+
+In this post, I show that we have infinitely many prime numbers. To do so, I use a proof from 300 BC which provided by Greek Mathematician. The one that people usually call as “Father of Geometry” or Euclid of Alexandria. 
+
+\section{Intro}
+
+Let's write prime numbers in an ascending manner,
+
+\begin{equation}
+\begin{split}
+p_1 = 2 \\
+p_2 = 3 \\
+p_3 = 5  \\
+ p_4 = 7
+\end{split}
+\end{equation}
+
+When we check the numbers which are in a pattern of: 
+
+\begin{equation}
+\begin{split}
+p_1.p_2 + 1 = 2.3 + 1 = 7 \\
+ p_1.p_2.p_3 + 1 = 2.3.5 + 1 = 31 \\
+p_1.p_2.p_3.p_4 + 1 = 2.3.5.7 + 1 = 211 \\
+\end{split}
+\end{equation}
+
+we oftenly come up with a prime number.\\
+
+But how can we be sure about primality of number $A = p_1.p_2 \dots p_n + 1$ for all values of $n$ ? 
+
+\section{Proof}
+Here we use contradiction technique to check: We intuitively think that $A$ is a prime number, since it empirically is. Now we set up an equation which assumes that $A$ is a non-prime number and try to show that this equation would not hold --hence it contradicts.
+
+Following equation assumes that $A$ is a divisor of some number. \\
+
+We clearly know that, every number -except $1$- is at least multiple of one prime number. \\
+
+For this reason, let's say that $p_r$ is a divisor of $A$ . 
+
+\begin{equation}
+ A = p_1.p_2.p_3 \dots p_r \dots p_n + 1 \rightarrow \frac{A}{p_r} = p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n + \frac{1}{p_r}
+\end{equation}
+
+Consequently we have 
+
+\begin{equation}
+\frac{A}{p_r} - p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n = \frac{1}{p_r} 
+\end{equation}
+
+Let's concentrate on this last equation. \\
+
+$\frac{A}{p_r}$ has to be an integer, since we assume $A$ is a multiple of $p_r$. \\
+
+Second term $p_1.p_2.p_3 \dots p_{r-1}.p_{r+1} \dots p_n$ is also integer, nevertheless $\frac{1}{p_r}$ is not. 
+So, our non-primality assumption of $A$ was wrong. Consequently, this wrong assumption proves us that, $A$ would always be prime for any value of $n$.
+\end{document}
