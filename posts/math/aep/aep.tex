@@ -146,7 +146,93 @@ P_{U}(\textbf{u}) \leq 2^{-(1-\epsilon)LH(U)}
 1 - P(F) \leq 1 - \frac{K}{L\epsilon^{2}P_{min}}
 \end{equation}
 
-where $P_{min}$ is the smallest positive value of $P_{U}(u)$
+where $P_{min}$ is the smallest positive value of $P_{U}(u)$ \\
+
+\textit{Proof:} Interested to show that for large $L$, the output sequence $U$ of the DMS is certain to be $\epsilon-$typical.
+
+We will use Tchebycheff \footnote{see Appendix B and \textit{weak law of large numbers}} inequality: 
+
+\begin{equation}
+P(|\frac{n_{A}}{n} - P(A)| \geq \epsilon) \leq \frac{P(A)[1-P(A)]}{n\epsilon^2}
+\end{equation}
+
+Let $B_{i}$ denote the event that $U$ takes on value $u$ such that the condition for $\epsilon-$typical sequence is not satisfied. Then,
+
+\begin{equation}
+\begin{split}
+P(B_i) &= P(|\frac{n_{a_{i}}}{L} - P_{U}(a_i)| > \epsilon P_{U}(a_i)) \\
+& \leq \frac{P_{U}(a_i)[1 - P_{U}(a_i)]}{L[\epsilon P_{U}(a_i)]^2}
+\end{split}
+\end{equation}
+
+Simplifying, we have
+
+\begin{equation}
+\begin{split}
+P(B_i) \leq \frac{1 - P_{U}(a_i)}{L \epsilon^{2}P_U(a_i)}
+\end{split}
+\end{equation}
+
+Let $P_{min}$ is the minimum non-zero value of $P_{U}(u)$, we get,
+
+\begin{equation}
+\begin{split}
+P(B_i) < \frac{1}{L \epsilon^{2}P_{min}}
+\end{split}
+\end{equation}
+
+Let $F$ be the failure event that $U$ is not $\epsilon-$typical. Since $F$ occurs in at least one of the events, $B_i, 1 \leq i \leq K$, using union bounds we get:
+
+\begin{equation}
+\begin{split}
+P(F) &\leq \sum_{i=1}^{K}P(B_i) \\
+& < \frac{K}{L \epsilon^2 P_{min}}
+\end{split}
+\end{equation}
+
+
+\textit{Property 3}: The number $M$ of $\epsilon-$typical sequence $u$ from a K-ary DMS with entropy $H(U)$ in bits satisfies:
+
+\begin{equation}
+(1 - \frac{K}{L \epsilon^2 P_{min}}) . 2^{(1-\epsilon)LH(U)} < M \leq 2^{(1 + \epsilon)LH(U)}
+\end{equation}
+
+where $P_{min}$ is the smallest positive value of $P_{U}(u)$. \\
+
+\textit{Proof}:
+
+\begin{equation}
+1 = \sum_{\forall u} P_{U}(u) \geq M . 2 ^{-(1 + \epsilon)LH(U)}
+\end{equation}
+
+since $P_u(u)$ is lower bounded by $2^{-(1+\epsilon)}LH(U)$.
+
+This gives upper bound 
+
+\begin{equation}
+M \leq 2 ^ {(1 + \epsilon)LH(U)}
+\end{equation}
+
+Now we are going to prove the lower bound. Total probability of the $\epsilon-$typical sequence is $1-P(F)$, so
+
+\begin{equation}
+1 - P(F) \leq M . 2 ^ {-(1 + \epsilon)LH(U)}
+\end{equation}
+
+using property-2, we know that $P(F) \leq \frac{K}{L \epsilon ^2 P_{min}}$. This gives the lower bound.
+
+\begin{equation}
+M > (1 - \frac{K}{L \epsilon^{2}P_{min}}) . 2 ^ {(1 - \epsilon)LH(U)}
+\end{equation}
+
+Now, lets try to look at these results when L is very large.  We have shown
+three properties of typical sequences.
+
+\begin{itemize}
+\item Property 1 says each of these $\epsilon-$typical sequences has probability equal to $2^{-LH(U)}$.
+\item Property 2 says that the total probability of these $\epsilon-$typical sequences is very nearly 1.
+\item Property 3 says that when L is large and $\epsilon$ is small, there are roughly $2^{LH(U)}$ amount of $\epsilon-$typical sequences $u$.
+\end{itemize}
 
 \begin{appendices}
 \section{Logarithmic Exchange}
@@ -173,9 +259,6 @@ E[X] & = (1 - P(X=1)) \times 0 + P(X=1) \times 1 = P(X=1) \\
 \end{split}
 \end{equation}
 
-
 \end{appendices}
-
-
 
 \end{document}
