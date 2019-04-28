@@ -5,7 +5,7 @@
 \usepackage{hyperref}
 \usepackage{multirow}
 \usepackage{graphicx}
-
+\usepackage{amsmath}
 
 %Gummi|065|=)
 \title{\textbf{Shannon Entropy}}
@@ -15,7 +15,7 @@
 
 \maketitle
 
-In this article, I'll try to explain Shannon Entropy with one of it's use case: data-compression. First, I'll provide a small introduction about data-representation and a need for compression with a very brief information about it's requirements. Consequently, I'll derive the proof of well known entropy formula in the equation below:
+In this article, I'll try to explain Shannon Entropy with one of it's use case: data-compression. First, I'll provide a small introduction about data-representation and a need for compression with a very brief information about it's requirements. Consequently, I'll derive the proof of well known entropy formula in the equation below that estimates the average minimum number of bits needed to encode information with priorly known probabilities:
 
 \begin{equation}
 H(X) = -\sum_{i}p_{i}\log_{b}p_{i}
@@ -46,7 +46,6 @@ Below, I provide an ASCII (American Standard Code for Information Interchange) e
 
 So, there are $26$ letters in the English alphabet, and we can say that $5$ bits would be enough to encode all characters, since $2^{5} = 32 > 26$. Nevertheless, ASCII has 127 different values --See Reference \cite{ascii}, which at least requires 7 bits per value. 
 
-\newpage
 The rest of the document tries to answer the following question:
 
 \begin{center}
@@ -64,7 +63,7 @@ So, as it could be seen in the Figure \ref{fig:letter_histogram} --and we all ve
 \section{Uniquely Decodable Codes}
 A code is a mapping of \textit{source messages} into \textit{codewords}. As an exampe, ASCII code above maps letters (as a source message) to codewords --such as \textit{h} to 01101000. 
 
-Here, a code is \textit{distinct} if each codeword is distinguishable from every other (i.e., the mapping from source messages to codewords is one-to-one). A distinct code is \textit{uniquely decodable} if every codeword is identifiable when immersed in a sequence of codewords. 
+Here, a code is \textit{distinct} if each codeword is distinguishable from every other (i.e., the mapping from source messages to codewords is one-to-one). A distinct code is \textit{uniquely decodable} if every codeword is identifiable in a sequence of codewords. 
 
 \subsection{Prefix Codes}
 A uniquely decodable code is a \textit{prefix code} (or prefix-free code) if it has the prefix property, which requires that no codeword is a proper prefix of any other codeword.
@@ -109,11 +108,17 @@ Kraft's inequality states that given a list of positive integers ($n_{1}, n_{2},
 
 where \textit{s} is the size of the alphabet \textit{S}.
 
-Our previous example code in Table \ref{table:prefix_code}, the alphabet is simply the binary digits $S = {0, 1}$, and therefore the size of the alphabet $s = 2$. We can easily check that (see Figure \ref{fig:kraft_tree}) indeed the inequality holds:
+Our previous example code in Table \ref{table:prefix_code}, the alphabet is simply the binary digits $S = {0, 1}$, and therefore the size of the alphabet $s = 2$. We can easily check that indeed the inequality holds:
 
 \begin{equation}
 2^{-1} + 2^{-2} + 2^{-3} + 2^{-3} \leq 1
 \end{equation}
+
+\subsection{Proof}
+
+As it could be observed in Figure \ref{fig:kraft_tree}, there are $s^{n_{j}}$ combination of codewords we could chose for $j_{th}$ level if there was no prefix constraints, but due to the codeword at a prior level $k < j$, $s^{n_{j} - n_{k}}$ amount of codewords are forbidden, since they contain $\sigma_{k}$ as a prefix. 
+
+In other words, to satisfy prefix-code requirements, each codeword must be represented by a leaf node, since it has to eliminate its descendants as codewords.
 
 \begin{center}
 \begin{figure}[h!]
@@ -149,9 +154,37 @@ for tree={circle,draw, l sep=1cm, s sep=0.6cm, minimum height=1cm, minimum width
 \end{figure}
 \end{center}
 
+So, a codeword at level $j$ has $s^{n_{r}-n_{j}}$ descendants (where $n_{r}$ is the length of longest codeword) at the highest level and descendant sets of codewords must be disjoint:
+
+\begin{equation} \label{eq1}
+\begin{split}
+\sum_{i=1}^r s^{n_r - n_i} \leq s^{n_r} \\
+ \Rightarrow \sum_{i=1}^{r} s^{-n_{i}} \leq 1
+\end{split}
+\end{equation}
+
+\section{Shannon Entropy}
+
+If the codeword $\sigma_{i}$ occurs with probability $p_{i}$ in the particular set, then the Shannon Entropy estimates the average minimum number of bits needed to encode is:
+
+\begin{equation}
+\sum_{i=1}^r p_{i}\log_{s}\frac{1}{p_{i}}
+\end{equation}
+
+So, the difference between the Shannon entropy and the expected length of code is:
+
+\begin{equation} \label{eq1}
+\begin{split}
+\sum_{i=1}^r p_{i}\log_{s}\frac{1}{p_{i}} - \sum_{i=1}^r p_{i}n_{i} &= \sum_{i=1}^r p_{i}\log_{s} \frac{s^{-n_{i}}}{p_{i}} \\
+ & \leq \log_{s}(\sum_{i=1}^r p_{i} \frac{s^{-n_{i}}}{p_{i}}) \\
+ & = \log_{s} (\sum_{i=1}^r s^{-n_{i}}) \\
+ & \leq \log_{s} 1 = 0
+\end{split}
+\end{equation}
+
+where we simply use the fact that $\log_{s}$ is a concave function and apply Kraft's inequality.
 
 \begin{thebibliography}{99}
-
 
 \bibitem{ascii}
 \url{http://ee.hawaii.edu/~tep/EE160/Book/chap4/subsection2.1.1.1.html}
@@ -161,6 +194,9 @@ for tree={circle,draw, l sep=1cm, s sep=0.6cm, minimum height=1cm, minimum width
 
 \bibitem{fundemental_concepts}
 \url{https://www.ics.uci.edu/~dan/pubs/DC-Sec1.html}
+
+\bibitem{lecture}
+\url{https://www2.isye.gatech.edu/~yxie77/ece587/Lecture7.pdf}
 
 \end{thebibliography}
 
