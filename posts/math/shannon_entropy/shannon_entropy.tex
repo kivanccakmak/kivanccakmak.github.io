@@ -59,30 +59,94 @@ The rest of the document tries to answer the following question:
 \caption{Frequency Table of English Letters \label{fig:letter_histogram}}
 \end{figure}
 
-So, as it could be seen in the Figure \ref{fig:letter_histogram} --and we all very well know, some of the letters are more oftenly used than the others. Here, \textit{e} is the most commonly used letter in English. So, would it be better to represent \textit{e} with less bits than the others, if the letter distribution of our text would be exactly same with Figure \ref{fig:letter_histogram}. If so, how less should it be?
+So, as it could be seen in the Figure \ref{fig:letter_histogram} --and we all very well know, some of the letters are more oftenly used than the others. Here, \textit{e} is the most commonly used letter in English. So, would it be better to represent \textit{e} with less bits than the others, if the letter distribution of our text would be exactly same with Figure \ref{fig:letter_histogram}. If so, how less could it be?
 
 \section{Uniquely Decodable Codes}
-TODO: uniquely decodable codes.
+A code is a mapping of \textit{source messages} into \textit{codewords}. As an exampe, ASCII code above maps letters (as a source message) to codewords --such as \textit{h} to 01101000. 
+
+Here, a code is \textit{distinct} if each codeword is distinguishable from every other (i.e., the mapping from source messages to codewords is one-to-one). A distinct code is \textit{uniquely decodable} if every codeword is identifiable when immersed in a sequence of codewords. 
 
 \subsection{Prefix Codes}
-TODO: prefix codes.
+A uniquely decodable code is a \textit{prefix code} (or prefix-free code) if it has the prefix property, which requires that no codeword is a proper prefix of any other codeword.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tabular}{| l | l | l | l | l |}
+ \hline
+  text   & a & b & c & d \\ \hline
+  binary & 0 & 01 & 011 & 0111 \\ 
+  \hline
+\end{tabular}
+\caption{Uniquely decodable non-prefix code}
+\label{table:non_prefix_code}
+\end{center}
+\end{figure}
+
+The code in Table \ref{table:non_prefix_code} is decodable but it is not a prefix code because the codeword for \textit{a} is a prefix for the codeword for \textit{b}. This means that we can not instantaneously decode \textit{a} without waiting for the next bit of data (to determine whether it is actually \textit{a} or just the first half of \textit{b}.)
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tabular}{| l | l | l | l | l |}
+ \hline
+  text   & a & b & c & d \\ \hline
+  binary & 0 & 01 & 011 & 111 \\ 
+  \hline
+\end{tabular}
+\caption{Uniquely decodable non-prefix code}
+\label{table:prefix_code}
+\end{center}
+\end{figure}
+
+Alternatively, the code in Table \ref{table:prefix_code} is a prefix code, since no codeword is a prefix of  another codeword.
 
 \section{Kraft's Inequality}
 
+Kraft's inequality states that given a list of positive integers ($n_{1}, n_{2}, \dots, n_{r}$), there exists a prefix code with a set of codewords ($\sigma_{1}, \sigma_{2}, \dots, \sigma_{r}$) where the length of each codeword $|\sigma_{i}| = n_{i}$, $\forall_{i}$, if and only if:
+
+\begin{equation}
+\sum_{i=1}^{r} s^{-n_{i}} \leq 1
+\end{equation}
+
+where \textit{s} is the size of the alphabet \textit{S}.
+
+Our previous example code in Table \ref{table:prefix_code}, the alphabet is simply the binary digits $S = {0, 1}$, and therefore the size of the alphabet $s = 2$. We can easily check that (see Figure \ref{fig:kraft_tree}) indeed the inequality holds:
+
+\begin{equation}
+2^{-1} + 2^{-2} + 2^{-3} + 2^{-3} \leq 1
+\end{equation}
+
+\begin{center}
+\begin{figure}[h!]
 \begin{center}
 \begin{forest}
-for tree={circle,draw, l sep=1cm, s sep=1.5cm, minimum height=0.8cm, minimum width=1cm}
+for tree={circle,draw, l sep=1cm, s sep=0.6cm, minimum height=1cm, minimum width=1cm}
 [, 
-    [0,edge label={node[midway,left] {$2^{-1}$}}]
-    [,edge label={node[midway,right] {$2^{-1}$}}
-      [10,edge label={node[midway,left] {$2^{-2}$}}] 
-      [,edge label={node[midway,right] {$2^{-2}$}}
-      [110,edge label={node[midway,left] {$2^{-3}$}}]
-      [111,edge label={node[midway,right] {$2^{-3}$}}]
-      ] 
-  ] 
+    [1,edge label={node[midway,left] {$2^{-1}$}}
+        [11,edge label={node[midway,left] {$2^{-2}$}}
+            [111,edge label={node[midway,left] {$2^{-3}$}}]
+            [110,edge label={node[midway,right] {$2^{-3}$}}]
+        ] 
+        [10,edge label={node[midway,right] {$2^{-2}$}}
+            [101,edge label={node[midway,left] {$2^{-3}$}}]
+            [100,edge label={node[midway,right] {$2^{-3}$}}]
+        ] 
+    ]
+    [0,edge label={node[midway,right] {$2^{-1}$}}
+        [01,edge label={node[midway,left] {$2^{-2}$}}
+            [011,edge label={node[midway,left] {$2^{-3}$}}]
+            [010,edge label={node[midway,right] {$2^{-3}$}}]
+        ] 
+        [00,edge label={node[midway,right] {$2^{-2}$}}
+            [001,edge label={node[midway,left] {$2^{-3}$}}]
+            [000,edge label={node[midway,right] {$2^{-3}$}}]
+        ] 
+    ] 
 ]
 \end{forest}
+\end{center}
+\caption{Code Tree}
+\label{fig:kraft_tree}
+\end{figure}
 \end{center}
 
 
@@ -95,6 +159,8 @@ for tree={circle,draw, l sep=1cm, s sep=1.5cm, minimum height=0.8cm, minimum wid
 \bibitem{mortada_krafts}
 \url{https://mortada.net/simple-proof-for-krafts-inequality.html}
 
+\bibitem{fundemental_concepts}
+\url{https://www.ics.uci.edu/~dan/pubs/DC-Sec1.html}
 
 \end{thebibliography}
 
