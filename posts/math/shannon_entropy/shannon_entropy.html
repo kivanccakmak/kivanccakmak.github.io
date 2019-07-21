@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>The Notebook</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="../../../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../../../css/business-casual.css" rel="stylesheet">
+
+<!-- My CSS -->
+<link href="../../../css/my.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="../../../js/latexit.js"></script>
+
+</head>
+
+<body>
+
+<div class="brand">The Notebook</div>
+<div class="address-bar">İstanbul, Turkey</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+			<a class="navbar-brand" href="index.html">The Notebook</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="../../../index.html">About</a>
+				</li>
+				<li>
+					<a href="../../../math.html">Math</a>
+				</li>
+				<li>
+					<a href="../../../chindogu.html">Chindogu</a>
+				</li>
+				<li>
+			</ul>
+		</div>
+	<!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+</nav>
+
+<div class="container">
+<div class="row">
+	<div class="box">
+		<div class="col-lg-12 text-left">
+<h1 class="entry-title">Shannon Entropy & Data Compression</h1>
+In this article, I'll try to explain Shannon Entropy with one of its use case: data-compression. First, I'll provide a small introduction about data-representation and a need for compression with very brief information about its requirements. Consequently, I'll derive the proof of well-known entropy formula in the equation below that estimates the average minimum number of bits needed to encode information with priorly known probabilities:
+		<br><br>
+		<p class="equation"> <b lang="latex">H(X) = -\sum_{i}p_{i}\log_{b}p_{i}</b></p>
+		<br><br>
+
+		<p><b>Data Representation and Compression</b></p>
+We all know that the way that our digital devices store data as ones and zeros, aka in binary format. So, our understanding of the smallest chunk of information is: "whether there is a voltage or not". 
+We represent letters of a text, pixels of an image, etc. in binary format. 
+<br><br>
+Below, I provide an ASCII (American Standard Code for Information Interchange) encoded "hello" below. In ASCII, each letter -and other control characters, such as <b lang="latex">\texttt{DEL}</b> and numbers like 1, 2 etc.- consists 8 bits. So, the text that we see is "hello", but the information that a digital device stores are: 
+
+<br><br>
+
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+      			<img src="img/hello.png"/>
+			<figcaption><i>ASCII encoding of "hello"</i></b> 
+			</figure>
+    	</div>
+		<br>
+		<br>
+
+		<br><br>
+		So, there are 26 letters in the English alphabet, and we can say that $5$ bits would be enough to encode all characters, since : <p class="equation"><b lang="latex">2^{5} = 32 > 26</b></p> 
+		<br>
+		Nevertheless, ASCII has 127 different values --See Reference 1, which at least requires 7 bits per value. The rest of the document tries to answer the following question:
+		<br><br>
+		"What would be the minimum number of bits that we have to use if we knew the distribution of letters for a particular text that we have?"
+
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+      			<img src="img/english_histogram.png"/>
+			<figcaption><i>Frequency Table of English letters</i></b> 
+			</figure>
+    	</div>
+		<br>
+		<br>
+
+		So, as it could be seen in Figure above --and we all well-know, some of the letters are more often used than the others. Here, letter "e" is the most commonly used one in English. So, would it be better to represent "e" with fewer bits than the others, if the letter distribution of our text would be exactly the same with the distribution above. If so, how less could it be?
+
+		<br><br>
+		<p><b>Uniquely Decodable Codes</b></p>
+		A code is a mapping of <i>source messages</i> into <i>codewords</i>. As an example, ASCII code above maps letters (as a source message) to codewords --such as letter "h" to number 01101000.
+		<br><br>
+		Here, a code is <i>distinct</i> if each codeword is distinguishable from every other (i.e., the mapping from source messages to codewords is one-to-one). A distinct code is <i>uniquely decodable</i> if every codeword is identifiable in a sequence of codewords.
+
+		<br><br>
+		<b>Prefix Codes</b>
+		<br>
+		A uniquely decodable code is called a <i>prefix code</i> (or prefix-free code) if it has the prefix property, which requires that no codeword is a proper prefix of any other codeword.
+		<br><br>
+The code below is decodable but it is not a prefix code because the codeword for "a" is a prefix for the codeword for "b". This means that we can not instantaneously decode "a" without waiting for the next bit of data (to determine whether it is actually "a" or just the first half of "b".)
+
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+      			<img src="img/non_prefix_code.png"/>
+			<figcaption><i>Uniquely decodable non-prefix code</i></b> 
+			</figure>
+    	</div>
+		<br>
+		<br>
+
+		<br>
+		Alternatively, the code below is a prefix code, since no codeword is a prefix of another codeword.
+
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+      			<img src="img/prefix_code.png"/>
+			<figcaption><i>Uniquely decodable prefix code</i></b> 
+			</figure>
+    	</div>
+		<br>
+		<br>
+
+		<br><br>
+		<p><b>Kraft's Inequality</b></p>
+
+		Kraft's inequality states that given a list of positive integers <b lang="latex">(n_{1}, n_{2}, \dots, n_{r})</b> there exists a prefix code with a set of codewords <b lang="latex">(\sigma_{1}, \sigma_{2}, \dots, \sigma_{r})</b> where the length of each codeword <b lang="latex">|\sigma_{i}| = n_{i}, \forall_{i}</b> if and only if:
+
+<p class="equation"><b lang="latex">\sum_{i=1}^{r} s^{-n_{i}} \leq 1</b></p> 
+
+where <i>s</i> is the size of the alphabet <i>S</i>.
+
+<br><br>
+
+In our previous example code, the alphabet is simply the binary digits <b lang="latex">S = \{0, 1\}</b>, and therefore the size of the alphabet <b lang="latex">s = 2</b>. We can easily check that indeed the inequality holds:
+
+<p class="equation"><b lang="latex">2^{-1} + 2^{-3} + 2^{-4} + 2^{-4} \leq 1</b></p> 
+
+		<br><br>
+		<b>Proof</b>
+		<br>
+
+		As it could be observed in the following Code Tree, there are <b lang="latex">s^{n_{j}}</b> combination of codewords where we could chose for <b lang="latex">j_{th}</b> level if there was no prefix constraints, but due to the codeword at a prior level <b lang="latex">k < j, s^{n_{j} - n_{k}}</b> amount of codewords are forbidden, since they contain <b lang="latex">\sigma_{k}</b> as a prefix. In other words, to satisfy prefix-code requirements, each codeword must be represented by a leaf node, since it has to eliminate its descendants as codewords.
+
+		<br>
+		<br>
+		<div class="row text-center">
+			<figure>
+      			<img src="img/code_tree.png"/>
+			<figcaption><i>Code Tree</i></b> 
+			</figure>
+    	</div>
+		<br>
+		<br>
+
+		So, a codeword at level <b lang="latex">j</b> has <b lang="latex">s^{n_{r}-n_{j}}</b> descendants (where <b lang="latex">n_{r}</b> is the length of longest codeword) at the highest level. For instance <b lang="latex">1</b> has <b lang="latex">2^{3-1}</b> descendants which are "111", "110", "101" and "100".
+		<br><br>
+		Besides, descendant sets of codewords must be disjoint to satisfy prefix-free requirement. As an example, "1" and "10" has joint descendants, which are "101" and "100", hence a prefix-free codeword can not contain both "1" and "10".
+
+		<br><br>
+		So, we know that the total number of forbidden codewords at step <b lang="latex">j</b> is:
+		<br><br>
+
+		<p class="equation"><b lang="latex">\sum_{i=1}^{j-1} s^{n_j - n_i}</b></p> 
+
+		<br>
+		As an example, if our level <b lang="latex">j=3</b>, we would have 6 forbidden codewords which can also be observed from the Code Tree above:
+
+		<br><br>
+		<p class="equation"><b lang="latex">\sum_{i=1}^{j-1} s^{n_j - n_i} = 2^{(3-1)} + 2^{(3-2)} = 6</b></p> 
+
+		<br><br>
+		For each level <b lang="latex">j</b>, we possibly have <b lang="latex">s^{n_j}</b> codewords; and this amount should exceed the number of forbidden codewords for level <b lang="latex">j</b> to have a prefix codeword set. Here we apply this lemma for highest level <b lang="latex">r</b> below, which implies the Kraft Inequality:
+
+		<br><br>
+		<p class="equation"><b lang="latex">\sum_{i=1}^r s^{n_r - n_i} \leq s^{n_r} \\
+ \Rightarrow \sum_{i=1}^{r} s^{-n_{i}} \leq 1</b></p> 
+
+
+		<p><b>Shannon Entropy</b></p>
+		If the codeword <b lang="latex">\sigma_{i}</b> occurs with probability <b lang="latex">p_{i}</b> in the particular set, the expected length of code is: 
+
+		<br><br>
+		<p class="equation"><b lang="latex">\sum_{i=1}^r p_{i}n_{i}</b></p> 
+
+		and Shannon Entropy estimates the average minimum number of bits needed to encode is:
+
+		<br><br>
+		<p class="equation"><b lang="latex">\sum_{i=1}^r p_{i}\log_{s}\frac{1}{p_{i}}</b></p> 
+
+		<br>
+		So, here we calculate the difference between the Shannon entropy and the expected length of the code is:
+
+		<p class="equation"><b lang="latex">\sum_{i=1}^r p_{i}\log_{s}\frac{1}{p_{i}} - \sum_{i=1}^r p_{i}n_{i} = \sum_{i=1}^r p_{i}(\log_{s}\frac{1}{p_{i}} - \log_{s}s^{n_{i}})</b></p> 
+		<p class="equation"><b lang="latex">=\sum_{i=1}^r p_{i}(\log_{s}\frac{1}{p_{i}} + \log_{s}s^{-n_{i}})</b></p> 
+
+		<p class="equation"><b lang="latex">=\sum_{i=1}^r p_{i}\log_{s} \frac{s^{-n_{i}}}{p_{i}}</b></p> 
+
+		<p class="equation"><b lang="latex">\leq \log_{s}(\sum_{i=1}^r p_{i} \frac{s^{-n_{i}}}{p_{i}})</b></p> 
+
+		<p class="equation"><b lang="latex">= \log_{s} (\sum_{i=1}^r s^{-n_{i}})</b></p> 
+
+		<p class="equation"><b lang="latex">\leq \log_{s} 1 = 0</b></p> 
+
+
+		where we simply use the fact that <b lang="latex">\log_{s}</b> is a concave function and apply Kraft's inequality. So, here we prove that Shannon entropy converges the expected length of the prefix-free code.
+		<br><br>
+        <i>References:</i>
+        <ol>
+            <li><a href="http://ee.hawaii.edu/~tep/EE160/Book/chap4/subsection2.1.1.1.html"</a>
+				http://ee.hawaii.edu/~tep/EE160/Book/chap4/subsection2.1.1.1.html</li>
+            <li><a href="https://mortada.net/simple-proof-for-krafts-inequality.html"</a>
+				https://mortada.net/simple-proof-for-krafts-inequality.html</li>
+            <li><a href="https://www.ics.uci.edu/~dan/pubs/DC-Sec1.html"</a>
+				https://www.ics.uci.edu/~dan/pubs/DC-Sec1.html</li>
+            <li><a href="https://www2.isye.gatech.edu/~yxie77/ece587/Lecture7.pdf"</a>
+				https://www2.isye.gatech.edu/~yxie77/ece587/Lecture7.pdf</li>
+        </ol>
+		</div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright &copy; Kıvanç Çakmak 2016</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
